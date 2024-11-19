@@ -1,0 +1,136 @@
+###############################################################################
+# Help                                                                        #
+###############################################################################
+
+# Parts of this config file have been taken from too many sources to possible list.
+# If I have borrowed from your work and havent given you credit, please send an
+# email to john.aziz@dtig.us and I will rectify it immediately.
+
+# Thanks to:
+#  - EndeavourOS team for the parts that I migrated from swaywm.
+#  - @rbnis for some of the sway aspects
+
+# Iconic font icon search: https://fontawesome.com/v4.7/cheatsheet/
+#
+
+##############################################################################
+# Sourcing (To make config changes easier                                    #
+##############################################################################
+
+include $HOME/.config/sway/config.d/*
+
+##############################################################################
+# Variables                                                                  #
+##############################################################################
+
+#######################################
+# Mod Key and Scripts                 #
+#######################################
+
+# Set the mod key to the winkey:
+set $mod Mod4
+
+# Set the lock screen script:
+# Note the location!
+set $lock swaylock
+
+# Set the power management script
+set $power ~/.local/bin/scripts/powermenu
+
+# set the lock man script
+set $lockman ~/.local/bin/scripts/lockman.sh
+
+# Set the wifi
+set $wifi ~/.config/rofi/modi/nmcli
+
+# Set term to tilix
+set $term tilix
+
+
+######################################
+
+# GTK+ applications take 20 seconds to start
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=swaysock XDG_SESSION_DESKTOP=sway QT_QPA_PLATFORM=wayland
+exec systemctl --user import-environment
+
+#get auth work with polkit-gnome
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/polkit/polkit/polkit-1
+#exec /usr/bin/lxpolkit
+exec export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'adwaita'
+    gsettings set $gnome-schema icon-theme 'adwaita'
+    gsettings set $gnome-schema cursor-theme 'adwaita'
+    gsettings set $gnome-schema font-name 'Noto Sans 10'
+}
+
+######################################
+# Preferred application launcher     #
+######################################
+
+#set $menu rofi 
+set $menu wofi -m $(expr $(swaymsg -t get_tree | jq '.nodes | map([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | index(true)') - 1) --show drun --run-command 'swaymsg exec -- {cmd}'
+
+bindsym $mod+d exec $menu
+bindsym F9 exec $menu
+
+## rofi bindings for window menu (two bindings F10/$mod+t)
+
+bindsym $mod+t exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi 
+bindsym F10 exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi 
+
+######################################
+
+
+#######################################
+# config for workspace behaviour:     #
+#######################################
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1   1: - Terminal
+set $ws2   2: - SecTerm
+set $ws3   3: - Infra
+set $ws4   4: - Journal
+set $ws5   5: - FF
+set $ws6   6: - LW
+set $ws7   7: - Code
+set $ws8   8: - Dev
+set $ws9   9: - Chat
+set $ws10  10: - Mail
+set $ws11  11: - AI
+set $ws12  12: - Files
+set $ws13  13: - GitHub
+set $ws14  14: - Gitea
+set $ws15  15: - Azure
+set $ws16  16: - Tasks
+set $ws17  17: - Cloud
+set $ws18  18: - Fin
+set $ws19  19: - Rec
+set $ws20  20: - Media
+
+########################################
+
+
+#############################################
+# autostart applications/services on login: #
+#############################################
+
+#############################################
+# Hardware - Audio/Video/Network            #
+#############################################
+
+# Audio
+# Start WirePlumber
+exec_always wireplumber --start-hidden
+
+# Start networkmanager-applet
+exec nm-applet
+
+# Bluetooth
+# Start blueberry app for managing bluetooth devices from tray:
+exec_always blueman-applet --start-hidden
+
+#############################################
