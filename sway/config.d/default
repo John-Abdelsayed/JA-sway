@@ -120,14 +120,14 @@ bindsym F9 exec $launcher
 
 ## rofi bindings for window menu (two bindings F10/$mod+t)
 
-bindsym $mod+t exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi 
-bindsym F10 exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi 
+bindsym $mod+t exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
+bindsym F10 exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
 
 
 ######################################
 # Scratchpad:
 ######################################
-    
+
 # Sway has a "scratchpad", which is a bag of holding for windows.
 # You can send windows there and get them back later.
 
