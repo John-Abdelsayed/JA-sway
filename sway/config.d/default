@@ -63,7 +63,8 @@ set $menu nwg-drawer
 set $wofi_menu wofi -m $(expr $(swaymsg -t get_tree | jq '.nodes | map([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | index(true)') - 1) --show drun --run-command 'swaymsg exec -- {cmd}'
 
 # Power Menu
-set $powermenu ~/.config/sway/scripts/power_menu.sh
+# set $powermenu ~/.config/sway/scripts/power_menu.sh
+set $powermenu nwg-bar
 
 # Wifi
 set $wifi ~/.config/rofi/modi/nmcli
@@ -71,7 +72,10 @@ set $wifi ~/.config/rofi/modi/nmcli
 # Bluetooth
 set $blu2th bluetooth-manager
 
-### Idle configuration
+#######################################
+# ### Idle configuration              #
+#######################################
+
 exec swayidle idlehint 1
 exec_always swayidle -w before-sleep "$lock"
 set $lock swaylock -C ~/.config/swaylock/config
@@ -237,7 +241,7 @@ bindsym $mod+F1 exec xed ~/.config/sway/keybindings
 
 
 ########################
-# Layouts
+# Workspace Layouts
 ########################
 
 # sway tabbed layout:
@@ -314,7 +318,7 @@ set $ws20  20: - Media
 #######################################
 
 #######################################
-# Workspaces:
+# Workspaces Names
 #######################################
 
     # Workspace bindings are using bindcode instead of bindsym for better Azerty compatibility.

@@ -1,33 +1,5 @@
-# Config for sway
-#
-# Read `man 5 sway` for a complete reference.
-
-# user config directory
-
-##############################################################################
-# Outline                                                                    #
-# I.    Sourcing (config.d)
-# II.   Variables (config.d)
-#       A.  Mod Key
-#       B.  Program Menu
-#       C.  Power Menu
-#       D.  Script Variables
-#       E.  Config for Workspace Behavior
-# III.  Bindings (config.d)
-#       A.  Basics
-#       B.  Application Launcher
-#       C.  Hardware
-#           i.  Audio
-#           ii. Display
-#       D. Scripts
-#       E. Functions/Cmds
-#       F. Programs
-##############################################################################
-
-
 ##############################################################################
 # Sourcing                                                                   #
 ##############################################################################
 
 include $HOME/.config/sway/config.d/*
-
