@@ -27,3 +27,18 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+######################################
+# XDG_CURRENT_DESKTOP
+######################################
+
+# Some variables need to be exported to systemd and/or dbus activation environments so tools that rely on them work properly.
+# The essential ones are: WAYLAND_DISPLAY, DISPLAY (if XWayland is used), XDG_CURRENT_DESKTOP,
+# plus Sway's: SWAYSOCK, I3SOCK, XCURSOR_SIZE, XCURSOR_THEME.
+
+# Export should be performed from context of running sway process, via exec statements in sway's configuration:
+exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+#If dbus-broker dbus implementation is used, that's it. It reuses activation environment of systemd.
+
+# If classic dbus implementation is used, it requires updating its own separate environment:
+exec dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
