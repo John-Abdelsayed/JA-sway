@@ -1,0 +1,77 @@
+##############################################################################
+# Variables                                                                 #
+##############################################################################
+
+#######################################
+# Terminal                            #
+#######################################
+
+# Set default terminal emulator
+set $term tilix
+
+# Set default terminal emulator (Wayland)
+set $alt_term foot
+
+#######################################
+# Browser                             #
+#######################################
+
+set $browser MOZ_ENABLE_WAYLAND=1 firefox
+set $alt_browser chromium
+
+#######################################
+# File Manager                        #
+#######################################
+
+set $filemanager thunar
+set $alt_filemanager nnn-nerd
+
+#######################################
+# Text Editor                         #
+#######################################
+
+set $editor mousepad
+set $alt_editor gedit
+
+#######################################
+# Calculator                          #
+#######################################
+
+set $calc galculator
+set $alt_calc qalculate-gtk
+
+#######################################
+# Menus		        	              #
+#######################################
+
+# Application launcher - Fuzzel
+set $launcher fuzzel
+
+# Application launcher - NWG Menu
+set $alt_launcher nwg-menu
+
+# Application menu - NWG Drawer
+set $menu nwg-drawer
+
+# Application menu - Wofi
+set $alt_menu wofi -m $(expr $(swaymsg -t get_tree | jq '.nodes | map([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | index(true)') - 1) --show drun --run-command 'swaymsg exec -- {cmd}'
+
+# Window Cycling
+set $cycle rofi -show window -config ~/.config/rofi/rofidmenu.rasi
+
+# Power Menu
+set $powermenu nwg-bar
+set $alt_powermenu ~/.config/sway/scripts/power_menu.sh
+
+# Wifi
+set $wifi nmcli
+
+# Bluetooth
+set $blu2th bluetooth-manager
+
+#######################################
+# exit                                #
+#######################################
+
+# Set the exit to perform launcher actions
+set $exit $launcher

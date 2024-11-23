@@ -121,11 +121,15 @@ exec_always --no-startup-id foot --server
 exec nwg-update-indicator
 
 ######################################
-# Security                           #
+# Password                           #
 ######################################
 
 # Start Bitwarden
 exec sleep 10 && bitwarden-desktop
+
+######################################
+# Security                           #
+######################################
 
 # Start OpenSnitch
 exec sleep 10 && opensnitch-ui

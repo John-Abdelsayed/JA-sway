@@ -1,24 +1,4 @@
 ##############################################################################
-# Outline                                                                    #
-# I.    Sourcing (from sway/config)
-# II.   Variables
-#       A.  Mod Key
-#       B.  Program Menu
-#       C.  Power Menu
-#       D.  Script Variables
-#       E.  Config for Workspace Behavior
-# III.  Bindings
-#       A.  Basics
-#       B.  Application Launcher
-#       C.  Hardware
-#           i.  Audio
-#           ii. Display
-#       D. Scripts
-#       E. Functions/Cmds
-#       F. Programs
-##############################################################################
-
-##############################################################################
 # Variables                                                                  #
 ##############################################################################
 
@@ -26,7 +6,9 @@
 # Mod Key                             #
 #######################################
 
-# Set the mod key to the winkey:
+# Set the mod key
+# Mod1 = Alt
+# Mod4 = Super
 set $mod Mod4
 
 #######################################
@@ -40,39 +22,6 @@ set $mod Mod4
 #set $right l
 
 #######################################
-# Terminal                            #
-#######################################
-
-# Set default terminal emulator
-set $term tilix
-
-# Set default terminal emulator (Wayland)
-# set $term foot
-
-#######################################
-# Menus			              #
-#######################################
-
-# Application launcher - Fuzzel
-set $launcher fuzzel
-
-# Application menu - NWG Drawer
-set $menu nwg-drawer
-
-# Application menu - Wofi
-set $wofi_menu wofi -m $(expr $(swaymsg -t get_tree | jq '.nodes | map([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | index(true)') - 1) --show drun --run-command 'swaymsg exec -- {cmd}'
-
-# Power Menu
-# set $powermenu ~/.config/sway/scripts/power_menu.sh
-set $powermenu nwg-bar
-
-# Wifi
-set $wifi ~/.config/rofi/modi/nmcli
-
-# Bluetooth
-set $blu2th bluetooth-manager
-
-#######################################
 # ### Idle configuration              #
 #######################################
 
@@ -84,26 +33,37 @@ set $lock swaylock -C ~/.config/swaylock/config
 # Bindings                                                                  #
 ##############################################################################
 
-
 #######################################
-# Basics                              #
+# Sway-Focused Actions                #
 #######################################
 
 # Kill focused window
-bindsym $mod+c kill
+bindsym $mod+k kill
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+r reload
 
-# Launch the terminal
+# Launch the terminals
 bindsym $mod+Return exec $term
+bindsym $mod+Mod1+Return exec $alt_term
 
 # Open the power menu
 bindsym $mod+Shift+e exec $powermenu
 
-# Kill focused window
-bindsym $mod+q kill
+# Hide dock
+# bindsym $mod+d exec $dock
 
+# Launch editor
+bindsym $mod+e exec $editor
+bindsym $mod+Mod1+e exec $alt_editor
+
+# Launch browser
+bindsym $mod+w exec $browser
+bindsym $mod+Mod1+w $alt_browser
+
+# Launch calculators
+bindsym $mod+c exec $calc
+bindsym $mod+Mod1+c exec $alt_calc
 
 ######################################
 # Application launcher               #
@@ -111,18 +71,19 @@ bindsym $mod+q kill
 
 # Application Menu
 bindsym $mod+d exec $menu
+bindsym $mod+Mod1+d exec $alt_menu
 
-# Application Menu - wofi
-bindsym $mod+Shift+d $wofi_menu
+# Cycle Through Windows - wofi
+# layout toggle
+bindsym Mod1+Tab layout toggle tabbed stacking split
+bindsym $mod+Tab layout toggle splitv splith
+#bindsym $mod+Tab exec $cycle
+
+# Search through Windows
+bindsym F10 exec $cycle
 
 #Launcher
 bindsym F9 exec $launcher
-
-## rofi bindings for window menu (two bindings F10/$mod+t)
-
-bindsym $mod+t exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
-bindsym F10 exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
-
 
 ######################################
 # Scratchpad:
@@ -132,11 +93,11 @@ bindsym F10 exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
 # You can send windows there and get them back later.
 
 # Move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+#bindsym $mod+minus scratchpad show
 
 #######################################
 # Hardware                            #
@@ -201,7 +162,7 @@ bindsym $mod+Shift+l exec $lock
 bindsym $mod+l exec $lockman
 
 # Powermenu
-bindsym $mod+Escape exec $power
+bindsym $mod+Escape exec $powermenu
 
 # Wifi
 bindsym $mod+End exec $wifi
@@ -237,8 +198,12 @@ bindsym $mod+End exec $wifi
 bindsym Shift+Control+Print exec grim -g "$(slurp)" - | wl-copy
 
 # Keybinding list in editor:
-bindsym $mod+F1 exec xed ~/.config/sway/keybindings
+#bindsym $mod+F1 exec xed ~/.config/sway/keybindings
 
+
+bindsym Mod1+c            exec nwg-clipman
+bindsym Mod1+l            exec nwg-lock
+bindsym $mod+F1           exec nwg-shell-help
 
 ########################
 # Workspace Layouts
@@ -249,9 +214,9 @@ bindsym $mod+F1 exec xed ~/.config/sway/keybindings
 workspace_layout tabbed
 
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
-bindsym $mod+g layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+g layout tabbed
+# bindsym $mod+e layout toggle split
 
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
@@ -286,6 +251,20 @@ bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
+
+##########################
+#      Border & Gaps     #
+##########################
+
+# changing border style
+bindsym $mod+b border toggle
+
+# change gaps
+bindsym $mod+plus                gaps inner current plus  5
+bindsym $mod+minus               gaps inner current minus 5
+bindsym Mod1+plus                gaps outer current plus  5
+bindsym Mod1+minus               gaps outer current minus 5
+
 
 #######################################
 # Config for Workspace Behavior       #
@@ -387,28 +366,25 @@ bindsym $mod+Mod1+Right resize grow width 10 px or 10 ppt
 
 
 #######################################
-# App shortcuts
+# App Bindings
 ########################################
-    
-# Launch the file explorer
-bindsym $mod+n exec thunar
 
-# Launch the browser
-bindsym $mod+o exec firefox
+# Launch the file explorer
+bindsym $mod+n exec $filemanager
+bindsym $mod+Mod1+n exec $alt_filemanager
 
 # Launch the clipboard manager
-    bindsym $mod+Ctrl+v exec cliphist list | fuzzel -d -w 90 -l 30 -p "Select an entry to copy it to your clipboard buffer:"| cliphist decode | wl-copy
-    # Delete an entry from the clipboard manager
-    bindsym $mod+Ctrl+x exec cliphist list | fuzzel -d -w 90 -l 30 -t cc9393ff -S cc9393ff -p "Select an entry to delete it from cliphist:"| cliphist delete
-    # Note: you can clear all cliphist entries by running `cliphist wipe`
+bindsym $mod+Ctrl+v exec cliphist list | fuzzel -d -w 90 -l 30 -p "Select an entry to copy it to your clipboard buffer:"| cliphist decode | wl-copy
+# Delete an entry from the clipboard manager
+bindsym $mod+Ctrl+x exec cliphist list | fuzzel -d -w 90 -l 30 -t cc9393ff -S cc9393ff -p "Select an entry to delete it from cliphist:"| cliphist delete
+# Note: you can clear all cliphist entries by running `cliphist wipe`
 
 #
 # Screenshots
 #
-    # Snip a selection and pipe to swappy
-    bindsym print exec grim -g "$(slurp)" - | swappy -f -
-    # Screenshot a window and pipe to swappy
-    bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
-    # Screenshot the current display and pipe to swappy
-    bindsym Shift+Print exec ~/.config/sway/scripts/screenshot_display.sh
-
+# Snip a selection and pipe to swappy
+bindsym print exec grim -g "$(slurp)" - | swappy -f -
+# Screenshot a window and pipe to swappy
+bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
+# Screenshot the current display and pipe to swappy
+bindsym Shift+Print exec ~/.config/sway/scripts/screenshot_display.sh

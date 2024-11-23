@@ -2,4 +2,46 @@
 # Sourcing                                                                   #
 ##############################################################################
 
-include $HOME/.config/sway/config.d/*
+##########################
+# Include all files
+##########################
+
+#include $HOME/.config/sway/config.d/*
+
+##########################
+# Include specific files
+##########################
+
+# include the default config
+include $HOME/.config/sway/config.d/default
+
+# include variables
+include $HOME/.config/sway/config.d/variables
+
+# include outputs
+include $HOME/.config/sway/config.d/output
+
+# include autostart
+include $HOME/.config/sway/config.d/autostart_applications
+
+# include workspace to display binding
+include $HOME/.config/sway/config.d/workspace_displaybinding
+
+# include keyboards, mice, and tablet input
+include $HOME/.config/sway/config.d/keyboard
+# include $HOME/.config/sway/config.d/pointer
+include $HOME/.config/sway/config.d/touchpad
+include $HOME/.config/sway/config.d/tablet
+
+# include application defaults
+include $HOME/.config/sway/config.d/application_defaults
+
+# include autostart apps
+include $HOME/.config/sway/config.d/autostart_myapps
+
+# include laptop lid close/open
+include $HOME/.config/sway/config.d/clamshell
+
+# include themes
+include $HOME/.config/sway/config.d/theme
+
