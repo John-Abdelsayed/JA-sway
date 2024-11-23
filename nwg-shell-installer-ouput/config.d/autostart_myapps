@@ -1,5 +1,5 @@
 #################################################################
-# Autostart Services on login:      		                #
+# autostart applications/services on login:                     #
 #################################################################
 
 #############################################
@@ -18,24 +18,20 @@ exec_always wireplumber --start-hidden
 ####################
 
 # Start networkmanager-applet
-exec_always nm-applet --indicator
-
+exec nm-applet --indicator
 
 ####################
 # Bluetooth
 ####################
 
 # Start blueberry app for managing bluetooth devices from tray:
-exec_always blueman-applet
-
+exec_always blueman-applet --start-hidden
 
 ####################
 # Mouse
 ####################
-
 # Start unclutter
 exec_always unclutter --start-hidden
-
 
 ####################
 # Display
@@ -54,14 +50,6 @@ exec xset s 480 dpms 600 600 600
 exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 #exec picom -cb
 
-# Set up daytime/nightime lighting
-exec wlsunset -t 4500 -T 6500 -l -1 -L -1 -g 1.0
-
-# Set up autotiling (Experimental)
-exec_always nwg-autotiling
-
-exec_always nwg-panel -c preset-0 -s preset-0.css
-
 # Set wallpaper
 #exec nitrogen --random --restore
 #exec feh --recursive --bg-fill --randomize /usr/share/endeavouros/backgrounds/endeavouros_sway.png
@@ -72,11 +60,10 @@ exec variety
 #exec dbus-launch dunst --config ~/.config/dunst/dunstrc
 exec mako
 # exec zenity
-
-###################
+######################################
 
 #################################################################
-# Autostart Apps on login: 
+# Autostart Apps
 #################################################################
 
 ######################################
@@ -85,21 +72,14 @@ exec mako
 
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
-exec_always nwg-screenshot-applet
-
+     
 ######################################
 # Sway Fader
 ######################################
 exec python3 ~/.config/sway/scripts/swayfader.py
 
-
-######################################
-# App Drawer
-######################################
-
 # nwg-drawer
-# exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
-exec_always nwg-drawer -r -c 6 -is 64 -fscol 2 -s preset-0.css -term foot -ft -pbexit 'nwg-dialog -p exit-sway -c "swaymsg exit"' -pblock 'nwg-lock' -pbpoweroff 'nwg-dialog -p poweroff -c "systemctl -i poweroff"' -pbreboot 'nwg-dialog -p reboot -c "systemctl reboot"' -pbsleep 'nwg-dialog -p sleep -c "systemctl suspend"' -pbsize 48
+exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
 
 ######################################
 # Terminals                          #
@@ -115,28 +95,17 @@ exec_always nwg-drawer -r -c 6 -is 64 -fscol 2 -s preset-0.css -term foot -ft -p
 exec_always --no-startup-id foot --server
 
 ######################################
-# Update Indicator                   #
-######################################
-
-exec nwg-update-indicator
-
-######################################
-# Password                           #
+# Security                           #
 ######################################
 
 # Start Bitwarden
 exec sleep 10 && bitwarden-desktop
-
-######################################
-# Security                           #
-######################################
 
 # Start OpenSnitch
 exec sleep 10 && opensnitch-ui
 
 # Start YubiKey Manager
 exec sleep 10 && yubikey-desktop
-
 
 ######################################
 # Personal and PKM                   #
@@ -211,6 +180,7 @@ exec sleep 40 && vscodium
 # Start KDE Connect Indicator
 #exec sleep 15 && kdeconnect-indicator
 
+########################################
 
 ########################################
 # Media                                #
@@ -227,6 +197,8 @@ exec sleep 50 && vlc
 
 # Start Sunamu
 #exec sleep 60 && sunamu
+
+########################################
 
 
 ########################################
@@ -273,3 +245,4 @@ exec sleep 40 && mapit
 #exec sleep 40 && firefoxpwa site launch 01H960MR2RSEP4QVPCH0BX2X47
 
 
+####################################################################

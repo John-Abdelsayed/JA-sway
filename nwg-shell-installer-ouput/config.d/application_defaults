@@ -1,8 +1,5 @@
 # JA Custom
 # automatic set focus new window if it opens on another workspace then the current:
-
-# Terminals
-for_window [class=(?i)xfce4-terminal] focus
 for_window [class=(?i)xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=(?i)thunar] focus
@@ -10,26 +7,14 @@ for_window [class=(?i)evolution] focus
 for_window [class=(?i)nemo] focus
 for_window [class=(?i)vscodium] focus
 
-# switch to workspace with urgent window
-for_window [urgent="latest"] focus
-focus_on_window_activation   focus
-
-# focus, floating, & sticky
-for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks)"] floating enable
-for_window [app_id="(?i)(?:nm-connection-editor|gsimplecal|galculator)"] floating enable
-for_window [app_id="(?i)(?:firefox|chromium)"] border none
-for_window [title="(?i)(?:copying|deleting|moving|Confirm)"] floating enable
-
-popup_during_fullscreen smart
-
 # set floating (nontiling)for apps needing it
-#for_window [class="Galculator" instance="galculator"] floating enable, resize set width 40 ppt height 30 ppt
+for_window [class="Galculator" instance="galculator"] floating enable, resize set width 40 ppt height 30 ppt
 for_window [title="Blueberry" instance="blueberry.py"] floating enable, resize set width 40 ppt height 30 ppt
 for_window [class="birdtray" instance="birdtray"] floating enable
 for_window [class="Yad" instance="yad"] floating enable
 for_window [app_id="yad"] floating enable
-#for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="opensnitch_ui"] floating enable, resize set width 60 ppt height 40 ppt
+for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="opensnitch_ui"] floating enable, resize set width 40 ppt height 30 ppt
 
 # set floating (nontiling) for special apps:
 for_window [class="Xsane" instance="xsane"] floating enable

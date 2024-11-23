@@ -12,24 +12,24 @@
 # Include specific files
 ##########################
 
-# include the default config
-include $HOME/.config/sway/config.d/default
-
 # include variables
 include $HOME/.config/sway/config.d/variables
 
-# include outputs
-include $HOME/.config/sway/config.d/output
+# include the default config
+include $HOME/.config/sway/config.d/default
 
 # include autostart
 include $HOME/.config/sway/config.d/autostart_applications
+
+# include outputs
+include $HOME/.config/sway/config.d/output
 
 # include workspace to display binding
 include $HOME/.config/sway/config.d/workspace_displaybinding
 
 # include keyboards, mice, and tablet input
 include $HOME/.config/sway/config.d/keyboard
-# include $HOME/.config/sway/config.d/pointer
+include $HOME/.config/sway/config.d/pointer
 include $HOME/.config/sway/config.d/touchpad
 include $HOME/.config/sway/config.d/tablet
 
