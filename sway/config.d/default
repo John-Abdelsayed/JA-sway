@@ -21,14 +21,6 @@ set $mod Mod4
 #set $up k
 #set $right l
 
-#######################################
-# ### Idle configuration              #
-#######################################
-
-exec swayidle idlehint 1
-exec_always swayidle -w before-sleep "$lock"
-set $lock swaylock -C ~/.config/swaylock/config
-
 ##############################################################################
 # Bindings                                                                  #
 ##############################################################################
