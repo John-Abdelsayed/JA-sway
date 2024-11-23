@@ -100,9 +100,10 @@ bindsym F9 exec $launcher
 # Audio               #
 #######################
 
-# Audio
-# Volume
+# To allow a keybinding to be executed while the lockscreen is active add the --locked parameter to bindsym.
+# bindsym --locked XF86AudioPlay exec playerctl play-pause
 
+# Volume
 # Use meta keys without showing osc
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 swayblocks
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 swayblocks
@@ -159,28 +160,28 @@ bindsym $mod+Escape exec $powermenu
 # Wifi
 bindsym $mod+End exec $wifi
 
-	##############################################################################
-	# System                                                                     #
-	##############################################################################
+##############################################################################
+# System                                                                     #
+##############################################################################
 
 
-	##############################################################################
-	# System Operations                                                           #
-	##############################################################################
+##############################################################################
+# System Operations                                                           #
+##############################################################################
 
-	set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
-	mode "$mode_system" {
-	    bindsym l exec $lock, mode "default"
-	    bindsym e exit
-	    bindsym s exec systemctl suspend, mode "default"
-	    bindsym r exec systemctl reboot, mode "default"
-	    bindsym Shift+s exec systemctl poweroff -i, mode "default"
-	    bindsym Shift+r exec systemctl reboot --firmware-setup, mode "default"
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
+mode "$mode_system" {
+	bindsym l exec $lock, mode "default"
+	bindsym e exit
+	bindsym s exec systemctl suspend, mode "default"
+	bindsym r exec systemctl reboot, mode "default"
+	bindsym Shift+s exec systemctl poweroff -i, mode "default"
+	bindsym Shift+r exec systemctl reboot --firmware-setup, mode "default"
 
-	    # return to default mode
-	    bindsym Return mode "default"
-	    bindsym Escape mode "default"
-	}
+	# return to default mode
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
 
 ########################
 # Functions/Cmds       #
@@ -188,14 +189,6 @@ bindsym $mod+End exec $wifi
 
 # capture the specified screen area to clipboard
 bindsym Shift+Control+Print exec grim -g "$(slurp)" - | wl-copy
-
-# Keybinding list in editor:
-#bindsym $mod+F1 exec xed ~/.config/sway/keybindings
-
-
-bindsym Mod1+c            exec nwg-clipman
-bindsym Mod1+l            exec nwg-lock
-bindsym $mod+F1           exec nwg-shell-help
 
 ########################
 # Workspace Layouts
@@ -215,6 +208,7 @@ bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle
+
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
 
@@ -380,3 +374,21 @@ bindsym print exec grim -g "$(slurp)" - | swappy -f -
 bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
 # Screenshot the current display and pipe to swappy
 bindsym Shift+Print exec ~/.config/sway/scripts/screenshot_display.sh
+
+
+
+#######################################
+# Experimental
+########################################
+
+# Keybinding list in editor:
+#bindsym $mod+F1 exec xed ~/.config/sway/keybindings
+
+# Execute Clipman
+# bindsym Mod1+c            exec nwg-clipman
+
+# Execute nwg-lock
+#bindsym Mod1+l            exec nwg-lock
+
+# Execute nwg-shell-help
+bindsym $mod+F1           exec nwg-shell-help
