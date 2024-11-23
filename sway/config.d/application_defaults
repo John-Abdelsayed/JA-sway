@@ -1,6 +1,9 @@
 # JA Custom
 # automatic set focus new window if it opens on another workspace then the current:
 
+# Xwayland - Formats Window title to "Xwayland - title" for ID
+for_window [shell="xwayland"] title_format "[XWayland] %title"
+
 # Terminals
 for_window [class=(?i)xfce4-terminal] focus
 for_window [class=(?i)xfce4-terminal] focus
