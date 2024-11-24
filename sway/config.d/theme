@@ -77,7 +77,6 @@ for_window [shell="x_wayland"] title_format "%class - %title"
 #}
 
 bar {
-	#status_command i3status -c ~/.config/sway/swayblocks.conf
 	swaybar_command waybar
 	font pango:Noto Sans Regular 10, FontAwesome 10
         position bottom
