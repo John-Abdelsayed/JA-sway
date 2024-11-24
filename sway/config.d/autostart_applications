@@ -1,32 +1,15 @@
-######################################
-# Polkit
-######################################
+############################################################################
+# Environment
+############################################################################
 
-# Auth with polkit-gnome:
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec /usr/lib/polkit/polkit/polkit-1
-#exec /usr/bin/lxpolkit
-exec export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+# Exports any env vars from nside ~/.config/environment.d/
+# exec export $(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
 
 ######################################
 # systemd Env Variables
 ######################################
 
-# Import environment variables for user systemd service manager
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-######################################
-# dbus
-######################################
-
-# Update dbux environments with display variables
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
-
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-    dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 ######################################
 # XDG_CURRENT_DESKTOP
@@ -42,3 +25,26 @@ exec systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DES
 
 # If classic dbus implementation is used, it requires updating its own separate environment:
 exec dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+
+          # This may be obsolete or deprecated due to the above
+          ######################################
+          # dbus
+          ######################################
+
+          # Update dbux environments with display variables
+          #exec hash dbus-update-activation-environment 2>/dev/null && \
+          #     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+          # exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+######################################
+# Polkit
+######################################
+
+# Auth with gnome polkit-gnome:
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Auth with polkit
+#exec /usr/lib/polkit/polkit/polkit-1
+
+# Auth with lxpolkit
+#exec /usr/bin/lxpolkit
