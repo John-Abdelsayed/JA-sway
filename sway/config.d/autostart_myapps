@@ -28,7 +28,7 @@ exec_always wireplumber --start-hidden
 ####################
 
 # Start networkmanager-applet
-exec_always nm-applet --indicator
+exec nm-applet --indicator
 
 
 ####################
@@ -79,10 +79,11 @@ exec_always nwg-panel -c preset-0 -s preset-0.css
 #exec swaybg
 exec variety
 
-# Desktop notifications
-#exec dbus-launch dunst --config ~/.config/dunst/dunstrc
-exec mako
+# Desktop notification daemons
+# exec dbus-launch dunst --config ~/.config/dunst/dunstrc
+# exec mako
 # exec zenity
+exec swaync -s /home/b0nz1cu5/.config/swaync/preset-0.css
 
 ###################
 
@@ -101,6 +102,7 @@ exec_always nwg-screenshot-applet
 ######################################
 # Sway Fader
 ######################################
+
 exec python3 ~/.config/sway/scripts/swayfader.py
 
 
