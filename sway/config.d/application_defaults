@@ -10,8 +10,11 @@
 # Xwayland
 ###################
 
-# Formats Window title to "Xwayland - title" for ID
+# Title format for windows
 for_window [shell="xwayland"] title_format "[XWayland] %title"
+for_window [shell="xdg_shell"] title_format "%title (%app_id)"
+for_window [shell="x_wayland"] title_format "[XWayland] %class - %title"
+
 
 # Inhibit idle
 for_window [app_id="firefox"] inhibit_idle fullscreen
