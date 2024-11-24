@@ -142,7 +142,7 @@
     "name": "panel-top",
     "output": "All",
     "layer": "bottom",
-    "position": "bottom",
+    "position": "top",
     "controls": "right",
     "width": "auto",
     "height": 30,
