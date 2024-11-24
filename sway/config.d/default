@@ -313,7 +313,7 @@ bindsym $mod+Escape exec $powermenu
 bindsym $mod+End exec $wifi
 
 # Bluetooth
-bindsym $mod+Mod1+End
+bindsym $mod+Mod1+End exec $blu2th
 
 ########################
 # Screenshot      #
