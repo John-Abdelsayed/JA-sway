@@ -68,5 +68,6 @@ bindsym $mod+F1           exec nwg-shell-help
 ####################
 # Alternative NWG-Panel
 ####################
-
-# swaync -s nwg-panel/swaync/preset-0.css
+# bar {
+#swaync -s nwg-panel/swaync/preset-0.css
+#}
