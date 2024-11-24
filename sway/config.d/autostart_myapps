@@ -71,7 +71,7 @@ exec wlsunset -t 4500 -T 6500 -l -1 -L -1 -g 1.0
 exec_always nwg-autotiling
 
 # Execute nwg-panel
-exec_always nwg-panel -c ~/.config/nwg-panel/config-0 -s preset-0.css
+exec_always nwg-panel -c ~/.config/nwg-panel/config -s preset-0.css
 
 # Set wallpaper
 #exec nitrogen --random --restore
