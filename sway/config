@@ -47,3 +47,5 @@ include $HOME/.config/sway/config.d/clamshell
 # include themes
 include $HOME/.config/sway/config.d/theme
 
+# include experimental features
+include $HOME/.config/sway/config.d/experimental
