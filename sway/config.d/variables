@@ -64,7 +64,7 @@ set $alt_term foot
 
 set $browser MOZ_ENABLE_WAYLAND=1 firefox
 #set $browser firefox
-set $alt_browser chromium
+set $alt_browser librewolf
 
 #######################################
 # File Manager                        #
