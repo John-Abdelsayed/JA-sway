@@ -1,46 +1,28 @@
-# JA Custom
-# automatic set focus new window if it opens on another workspace then the current:
+##########################################################
+# Application Defaults
+##########################################################
 
-# Xwayland - Formats Window title to "Xwayland - title" for ID
+#######################################
+# Application Window Defaults
+#######################################
+
+###################
+# Xwayland
+###################
+
+# Formats Window title to "Xwayland - title" for ID
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 
-# Terminals
-for_window [class=(?i)xfce4-terminal] focus
-for_window [class=(?i)xfce4-terminal] focus
-for_window [class=(?i)firefox] focus
-for_window [class=(?i)thunar] focus
-for_window [class=(?i)evolution] focus
-for_window [class=(?i)nemo] focus
-for_window [class=(?i)vscodium] focus
+# Inhibit idle
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="Chromium"] inhibit_idle fullscreen
 
-# switch to workspace with urgent window
-for_window [urgent="latest"] focus
-focus_on_window_activation   focus
-
-# focus, floating, & sticky
-for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks)"] floating enable
-for_window [app_id="(?i)(?:nm-connection-editor|gsimplecal|galculator)"] floating enable
-for_window [app_id="(?i)(?:firefox|chromium)"] border none
-for_window [title="(?i)(?:copying|deleting|moving|Confirm)"] floating enable
-
+# Show a popup if the computer is in full screen
 popup_during_fullscreen smart
 
-# set floating (nontiling)for apps needing it
-#for_window [class="Galculator" instance="galculator"] floating enable, resize set width 40 ppt height 30 ppt
-for_window [title="Blueberry" instance="blueberry.py"] floating enable, resize set width 40 ppt height 30 ppt
-for_window [class="birdtray" instance="birdtray"] floating enable
-for_window [class="Yad" instance="yad"] floating enable
-for_window [app_id="yad"] floating enable
-#for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="opensnitch_ui"] floating enable, resize set width 60 ppt height 40 ppt
-
-# set floating (nontiling) for special apps:
-for_window [class="Xsane" instance="xsane"] floating enable
-for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
-for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
-for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
-for_window [app_id="pamac-manager"] floating enable, resize set width 80 ppt height 70 ppt
-for_window [class="Lxappearance"] floating enable, resize set width 60 ppt height 50 ppt
+###################
+# Generic Windows
+###################
 
 # set floating for window roles
 for_window [window_role="pop-up"] floating enable
@@ -50,19 +32,124 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [window_role="About"] floating enable
-for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [title="Picture in picture"] floating enable, sticky enable
-for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
-for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+
 for_window [title="Reminders"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
 for_window [app_id="xsensors"] floating enable
 for_window [title="Save File"] floating enable
+
+# Set floating for generic titles
+for_window [title="(?i)(?:copying|deleting|moving)"] floating enable
+
+# switch to workspace with urgent window
+for_window [urgent="latest"] focus
+focus_on_window_activation   focus
+
+#######################################
+# Application-Specific
+#######################################
+
+###################
+# Sound
+###################
+
+
+###################
+# Bluetooth
+###################
+
+for_window [title="Blueberry" instance="blueberry.py"] floating enable, resize set width 40 ppt height 30 ppt
+for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
+for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt height 30 ppt
+
+###################
+# Terminals
+###################
+
+for_window [class=(?i)xfce4-terminal] focus
+
+###################
+# Chromium/Firefox
+###################
+
+# Set no border for Chromium/FF
+for_window [app_id="(?i)(?:firefox|chromium)"] border none
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 
-# Inhibit idle
-for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [app_id="Chromium"] inhibit_idle fullscreen
+###################
+# Thunar
+###################
+
+# Thunar File Copy/Overwrite
+for_window [app_id="thunar" title="Confirm to replace files"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+
+###################
+# Galculator
+###################
+
+# set floating (nontiling)for apps needing it
+for_window [class="Galculator" instance="galculator"] floating enable, resize set width 40 ppt height 30 ppt
+
+###################
+# OpenSnitch
+###################
+
+for_window [app_id="opensnitch_ui"] floating enable, resize set width 60 ppt height 40 ppt
+
+#######################################
+# Focus, Floating, and Sticky
+#######################################
+
+###################
+# Focus
+###################
+
+for_window [class=(?i)xfce4-terminal] focus
+for_window [class=(?i)firefox] focus
+for_window [class=(?i)thunar] focus
+for_window [class=(?i)evolution] focus
+for_window [class=(?i)nemo] focus
+for_window [class=(?i)vscodium] focus
+
+###################
+# Floating - Enable
+###################
+
+for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks)"] floating enable
+for_window [app_id="(?i)(?:nm-connection-editor|gsimplecal)"] floating enable
+for_window [class="birdtray" instance="birdtray"] floating enable
+for_window [class="Yad" instance="yad"] floating enable
+for_window [app_id="yad"] floating enable
+
+###################
+# Floating (nontiling)
+###################
+
+# set floating (nontiling) for special apps:
+for_window [class="Xsane" instance="xsane"] floating enable
+for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
+for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
+for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
+for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+
+###################
+# Sticky
+###################
+
+for_window [title="Picture in picture"] floating enable, sticky enable
+
+
+
+
+
+
+
+
+
+
+
+
 
 
