@@ -36,7 +36,7 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [window_role="About"] floating enable
 
-for_window [title="Reminders"] floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
+for_window [title="Reminders"] floating enable, border pixel 1, resize set width 30 ppt height 20 ppt
 for_window [app_id="xsensors"] floating enable
 for_window [title="Save File"] floating enable
 
@@ -55,7 +55,11 @@ focus_on_window_activation   focus
 # Video
 ###################
 
-for_window [app_id="mpv"] floating enable, resize set width 400 ppt height 300 ppt
+# Set mpv to float
+for_window [app_id="mpv"] floating enable, sticky enable, resize set width 40 ppt height 30 ppt
+
+# Set vlc to float
+for_window [class="vlc" instance="vlc"] floating enable, sticky enable, resize set width 40 ppt height 30 ppt
 
 ###################
 # Sound
@@ -75,6 +79,7 @@ for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt h
 ###################
 
 for_window [class=(?i)xfce4-terminal] focus
+for_window [app_id="tilix"] focus
 
 ###################
 # Chromium/Firefox
@@ -96,7 +101,7 @@ for_window [app_id="thunar" title="Confirm to replace files"] floating enable, b
 ###################
 
 # set floating (nontiling)for apps needing it
-for_window [class="Galculator" instance="galculator"] floating enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="galculator"] floating enable, sticky enable, resize set width 40 ppt height 30 ppt
 
 ###################
 # OpenSnitch
@@ -112,12 +117,9 @@ for_window [app_id="opensnitch_ui"] floating enable, resize set width 60 ppt hei
 # Focus
 ###################
 
-for_window [class=(?i)xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=(?i)thunar] focus
 for_window [class=(?i)evolution] focus
-for_window [class=(?i)nemo] focus
-for_window [class=(?i)vscodium] focus
 
 ###################
 # Floating - Enable
