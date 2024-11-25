@@ -19,7 +19,7 @@ include $HOME/.config/sway/config.d/10-variables
 include $HOME/.config/sway/config.d/20-autoset_env
 
 # include the default config
-include $HOME/.config/sway/config.d/30-default
+include $HOME/.config/sway/config.d/30-keybindings
 
 # include outputs
 include $HOME/.config/sway/config.d/40-outputs
