@@ -52,6 +52,12 @@ focus_on_window_activation   focus
 #######################################
 
 ###################
+# Video
+###################
+
+for_window [app_id="mpv"] floating enable, resize set width 400 ppt height 300 ppt
+
+###################
 # Sound
 ###################
 

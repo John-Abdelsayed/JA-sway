@@ -6,8 +6,6 @@
 # Hardware                                  #
 #############################################
 
-
-
 ####################
 # Idle configuration
 ####################
@@ -30,7 +28,6 @@ exec_always wireplumber --start-hidden
 # Start networkmanager-applet
 exec nm-applet --indicator
 
-
 ####################
 # Bluetooth
 ####################
@@ -46,13 +43,12 @@ exec_always blueman-applet
 # Start unclutter
 exec_always unclutter --start-hidden
 
-
 ####################
 # Display
 ####################
 
 # Autotiling
-# exec autotiling
+exec autotiling
 
 # Start a script to setup single laptop display
 # exec ~/.screenlayout/monitor.sh
