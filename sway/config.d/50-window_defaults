@@ -129,7 +129,7 @@ for_window [app_id="galculator"] floating enable, sticky enable, resize set widt
 # OpenSnitch
 ###################
 
-for_window [app_id="opensnitch_ui"] floating enable, resize set width 60 ppt height 40 ppt
+for_window [app_id="opensnitch_ui"] urgent enable, floating enable, sticky enable, resize set width 60 ppt height 40 ppt
 
 #######################################
 # Type Specific - Focus, Floating, and Sticky
@@ -146,10 +146,7 @@ for_window [class=(?i)firefox] focus
 ###################
 
 for_window [app_id="(?i)(?:azote|gnome-disks)"] floating enable
-
 for_window [class="birdtray" instance="birdtray"] floating enable
-for_window [class="Yad" instance="yad"] floating enable
-for_window [app_id="yad"] floating enable
 
 ###################
 # Floating (nontiling)
@@ -159,8 +156,8 @@ for_window [app_id="yad"] floating enable
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-
 for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
+for_window [title="gtop"] floating enable, resize set width 50 ppt height 70 ppt
 
 ###################
 # Sticky
