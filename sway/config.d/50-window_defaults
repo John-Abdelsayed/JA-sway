@@ -65,6 +65,17 @@ for_window [class="vlc" instance="vlc"] floating enable, sticky enable, resize s
 # Sound
 ###################
 
+for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
+
+###################
+# Network
+###################
+
+# nmtui
+for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
+
+# Network Manager Connection editor
+for_window [app_id="(?i)(?:nm-connection-editor)"] floating enable
 
 ###################
 # Bluetooth
@@ -79,7 +90,9 @@ for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt h
 ###################
 
 for_window [class=(?i)xfce4-terminal] focus
-for_window [app_id="tilix"] focus
+
+# Tilix
+for_window [app_id="tilix"] focus, floating enable, sticky enable, border pixel 1, resize set width 40 ppt height 30 ppt
 
 ###################
 # Chromium/Firefox
@@ -94,14 +107,23 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 ###################
 
 # Thunar File Copy/Overwrite
-for_window [app_id="thunar" title="Confirm to replace files"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="thunar" title="Confirm to replace files"] focus, urgent enable, floating enable, sticky enable, border pixel 1, resize set width 40 ppt height 30 ppt
+for_window [app_id="thunar" title="File Operations Progress"] floating enable, sticky enable, border pixel 1, resize set width 20 ppt height 10 ppt
+for_window [app_id="thunar" title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+
+###################
+# Editors
+###################
+
+# Mousepad
+for_window [app_id="mousepad"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 
 ###################
 # Galculator
 ###################
 
 # set floating (nontiling)for apps needing it
-for_window [app_id="galculator"] floating enable, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="galculator"] floating enable, sticky enable, resize set width 20 ppt height 30 ppt
 
 ###################
 # OpenSnitch
@@ -110,7 +132,7 @@ for_window [app_id="galculator"] floating enable, sticky enable, resize set widt
 for_window [app_id="opensnitch_ui"] floating enable, resize set width 60 ppt height 40 ppt
 
 #######################################
-# Focus, Floating, and Sticky
+# Type Specific - Focus, Floating, and Sticky
 #######################################
 
 ###################
@@ -118,15 +140,13 @@ for_window [app_id="opensnitch_ui"] floating enable, resize set width 60 ppt hei
 ###################
 
 for_window [class=(?i)firefox] focus
-for_window [class=(?i)thunar] focus
-for_window [class=(?i)evolution] focus
 
 ###################
 # Floating - Enable
 ###################
 
-for_window [app_id="(?i)(?:blueman-manager|azote|gnome-disks)"] floating enable
-for_window [app_id="(?i)(?:nm-connection-editor|gsimplecal)"] floating enable
+for_window [app_id="(?i)(?:azote|gnome-disks)"] floating enable
+
 for_window [class="birdtray" instance="birdtray"] floating enable
 for_window [class="Yad" instance="yad"] floating enable
 for_window [app_id="yad"] floating enable
@@ -137,12 +157,9 @@ for_window [app_id="yad"] floating enable
 
 # set floating (nontiling) for special apps:
 for_window [class="Xsane" instance="xsane"] floating enable
-for_window [app_id="pavucontrol" ] floating enable, resize set width 40 ppt height 30 ppt
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
-for_window [title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
-for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
 for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [title="nmtui"] floating enable,  resize set width 50 ppt height 70 ppt
+
 for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
 
 ###################
