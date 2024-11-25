@@ -1,0 +1,85 @@
+#################################################################
+# Autostart Apps on login: 
+#################################################################
+
+######################################
+# Security                           #
+######################################
+
+########################################
+#  Office and Productivity #############
+########################################
+
+########################################
+#  Artificial Intelligence (AI)        #
+########################################
+
+# Start HuggingChat
+#exec sleep 30 && firefoxpwa site launch 01GZ809WW5Y34MADZE4D0TAVHS
+
+########################################
+# Chat and IM                          #
+########################################
+
+######################################
+# Email                              #
+######################################
+
+######################################
+# PKM                                #
+######################################
+
+########################################
+# DTIG Cloud Apps                      #
+########################################
+
+# Start DTIG OPNSense
+# exec sleep 40 && firefoxpwa site launch 01GQ572NP75DX9SX44V5N5E0WR
+
+# Start DTIG Azure
+# exec sleep 40 && firefoxpwa site launch 01H8YD7Q5P7R9DX4EF6M4KHWKR
+
+# Start DTIG ADO
+# exec sleep 40 && chromium "--profile-directory=Profile 1" --app-id=gfonmnbppecencjjeoiepanllkhbjani
+
+# Start DTIG Synology
+# exec sleep 40 && firefoxpwa site launch 01GNYKHZCFRX7RTHPGMMJ4Z87T
+
+# Start DTIG To-Do (command-line)
+# exec tod0
+
+########################################
+# Development                          #
+########################################
+
+# Start Gitea
+# exec sleep 40 && firefoxpwa site launch 01H4KAPHAT9GY6FEK10B67PE21
+
+# Start GitHub
+exec sleep 40 && firefoxpwa site launch 01H8FBTS83B245Z4M5TVBPD8JM
+
+########################################
+#  Financials                          #
+########################################
+
+# Start Financials
+# Xero
+#exec sleep 40 && firefoxpwa site launch 01H8HBEQRHJXVWDV7CY6XAZ8AW
+
+# QBO
+#exec sleep 40 && firefoxpwa site launch 01GZ1M1VY13T291BVVV5TSGE4Z
+
+# Chase
+#exec sleep 40 && firefoxpwa site launch 01H960MR2RSEP4QVPCH0BX2X47
+
+########################################
+# Phone and Other Devices              #
+########################################
+
+########################################
+# Media                                #
+########################################
+
+########################################
+# Gaming                               #
+########################################

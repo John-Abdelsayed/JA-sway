@@ -30,8 +30,8 @@ bindsym $mod+r reload
 
 # Make the current focus fullscreen
 #change_binding
-#bindsym $mod+F11 fullscreen
-bindsym $mod+f fullscreen
+bindsym $mod+F11 fullscreen
+#bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 #change_binding
@@ -162,6 +162,7 @@ bindsym $mod+Shift+Control+0    move container to workspace  $ws20
 # Launch the terminals
 bindsym $mod+Return exec $term
 bindsym $mod+Mod1+Return exec $alt_term
+bindsym F12 exec $guaketoggle
 
 # Open the power menu
 bindsym $mod+Shift+e exec $powermenu

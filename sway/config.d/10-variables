@@ -58,6 +58,10 @@ set $term tilix
 # Set default terminal emulator (Wayland)
 set $alt_term foot
 
+# Set guake
+set $guaketoggle guake-toggle
+set $guake guake
+
 #######################################
 # Browser                             #
 #######################################

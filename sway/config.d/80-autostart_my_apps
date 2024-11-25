@@ -35,7 +35,6 @@ exec nm-applet --indicator
 # Start blueberry app for managing bluetooth devices from tray:
 exec_always blueman-applet
 
-
 ####################
 # Mouse
 ####################
@@ -47,18 +46,11 @@ exec_always unclutter --start-hidden
 # Display
 ####################
 
-# Autotiling
-exec autotiling
-
 # Start a script to setup single laptop display
 # exec ~/.screenlayout/monitor.sh
 
 # Set powersavings for display:
 exec xset s 480 dpms 600 600 600
-
-# Set up transparency 
-exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
-#exec picom -cb
 
 # Set up daytime/nightime lighting
 exec wlsunset -t 4500 -T 6500 -l -1 -L -1 -g 1.0
@@ -66,14 +58,19 @@ exec wlsunset -t 4500 -T 6500 -l -1 -L -1 -g 1.0
 # Set up autotiling (Experimental)
 exec_always nwg-autotiling
 
+# Autotiling
+exec autotiling
+
 # Execute nwg-panel
 exec_always nwg-panel -c ~/.config/nwg-panel/config -s preset-0.css
 
-# Set wallpaper
-#exec nitrogen --random --restore
-#exec feh --recursive --bg-fill --randomize /usr/share/endeavouros/backgrounds/endeavouros_sway.png
-#exec swaybg
-exec variety
+####################
+# Desktop & Wallpaper
+####################
+
+# Set up transparency
+exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+#exec picom -cb
 
 # Desktop notification daemons
 # exec dbus-launch dunst --config ~/.config/dunst/dunstrc
@@ -81,7 +78,12 @@ exec variety
 # exec zenity
 exec swaync -s /home/b0nz1cu5/.config/swaync/preset-0.css
 
-###################
+# Set wallpaper
+#exec nitrogen --random --restore
+#exec feh --recursive --bg-fill --randomize /usr/share/endeavouros/backgrounds/endeavouros_sway.png
+#exec swaybg
+exec variety
+
 
 #################################################################
 # Autostart Apps on login: 
@@ -101,7 +103,6 @@ exec_always nwg-screenshot-applet
 
 exec python3 ~/.config/sway/scripts/swayfader.py
 
-
 ######################################
 # App Drawer
 ######################################
@@ -109,6 +110,12 @@ exec python3 ~/.config/sway/scripts/swayfader.py
 # nwg-drawer
 # exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
 exec_always nwg-drawer -r -c 6 -is 64 -fscol 2 -s preset-0.css -term foot -ft -pbexit 'nwg-dialog -p exit-sway -c "swaymsg exit"' -pblock 'nwg-lock' -pbpoweroff 'nwg-dialog -p poweroff -c "systemctl -i poweroff"' -pbreboot 'nwg-dialog -p reboot -c "systemctl reboot"' -pbsleep 'nwg-dialog -p sleep -c "systemctl suspend"' -pbsize 48
+
+######################################
+# Update Indicator                   #
+######################################
+
+exec nwg-update-indicator
 
 ######################################
 # Terminals                          #
@@ -123,18 +130,8 @@ exec_always nwg-drawer -r -c 6 -is 64 -fscol 2 -s preset-0.css -term foot -ft -p
 # Start foot server
 exec_always --no-startup-id foot --server
 
-######################################
-# Update Indicator                   #
-######################################
-
-exec nwg-update-indicator
-
-######################################
-# Password                           #
-######################################
-
-# Start Bitwarden
-exec sleep 10 && bitwarden-desktop
+# Start guake
+exec_always guake
 
 ######################################
 # Security                           #
@@ -143,25 +140,73 @@ exec sleep 10 && bitwarden-desktop
 # Start OpenSnitch
 exec sleep 10 && opensnitch-ui
 
-# Start YubiKey Manager
-exec sleep 10 && yubikey-desktop
+# Start Bitwarden
+exec sleep 10 && bitwarden-desktop
 
+# Start YubiKey Manager
+exec sleep 10 && yubioath-desktop
+
+########################################
+#  Office and Productivity #############
+########################################
 
 ######################################
-# Personal and PKM                   #
+# Browsers                           #
+######################################
+
+# Start Firefox
+exec sleep 15 && firefox
+
+# Start Librewolf
+exec sleep 15 && librewolf
+
+########################################
+#  Artificial Intelligence (AI)        #
+########################################
+
+# Start ChatGPT
+exec sleep 30 && chat-gpt
+
+# Start Alpaca
+exec sleep 30 && alpaca
+
+# Start Chatall
+exec sleep 30 && chatall
+
+########################################
+# Chat and IM                          #
+########################################
+
+# Start RipCord
+#exec sleep 60 && ripcord
+
+# Start Teams
+exec sleep 30 && teams
+
+# Start Slack
+exec sleep 30 && slack
+
+# Start Telegram
+#exec sleep 60 && telegram-desktop
+
+######################################
+# Email                              #
 ######################################
 
 # Start Email clients
 # Start Thunderbird
-exec sleep 30 && thunderbird
-exec sleep 30 && birdtray
+exec sleep 20 && thunderbird
+exec sleep 25 && birdtray
 
 # Start Evolution
 #exec sleep 30 && GTK_THEME=Yaru-dark evolution
-exec sleep 40 && evolution
-exec sleep 40 && evolution-on
+exec sleep 20 && evolution
+exec sleep 25 && evolution-on
 
-# Start PKM
+######################################
+# PKM                                #
+######################################
+
 # Start Obsidian
 exec sleep 20 && obsidian
 
@@ -174,41 +219,42 @@ exec sleep 20 && obsidian
 # Start MS To-Do
 exec sleep 20 && to-do
 
+######################################
+# Storage                            #
+######################################
 
-########################################
-# DTIG Cloud Apps                      #
-########################################
+# Start dropbox
+exec sleep 20 && dropbox
 
-# Start DTIG OPNSense
-exec sleep 40 && firefoxpwa site launch 01GQ572NP75DX9SX44V5N5E0WR
+# Start synology client
+exec sleep 20 && synology-drive
 
-# Start DTIG Azure
-exec sleep 40 && firefoxpwa site launch 01H8YD7Q5P7R9DX4EF6M4KHWKR
+# Start onedrive
+# exec sleep 20 && onedrive
 
-# Start DTIG ADO
-# exec sleep 40 && chromium "--profile-directory=Profile 1" --app-id=gfonmnbppecencjjeoiepanllkhbjani
+######################################
+# DTIG Cloud Apps                    #
+######################################
 
-# Start DTIG Synology
-exec sleep 40 && firefoxpwa site launch 01GNYKHZCFRX7RTHPGMMJ4Z87T
+######################################
+# Development                        #
+######################################
 
-# Start DTIG To-Do (command-line)
-# exec tod0
-
-
-########################################
-# Development                          #
-########################################
-
-# Start GitLab
-exec sleep 40 && firefoxpwa site launch 01H4KAPHAT9GY6FEK10B67PE21
-
-# Start GitHub and GitHub Desktop
-exec sleep 40 && firefoxpwa site launch 01H8FBTS83B245Z4M5TVBPD8JM
-exec sleep 40 && github-desktop
+# Start GitHub Desktop
+exec sleep 30 && github-desktop
 
 # Start VSCodium
-exec sleep 40 && vscodium
+exec sleep 30 && vscodium
 
+########################################
+#  Financials                          #
+########################################
+
+# Start Homebank
+exec sleep 30 && homebank
+
+# Start Portfolio
+exec sleep 30 && portfolio
 
 ########################################
 # Phone and Other Devices              #
@@ -219,7 +265,6 @@ exec sleep 40 && vscodium
 
 # Start KDE Connect Indicator
 #exec sleep 15 && kdeconnect-indicator
-
 
 ########################################
 # Media                                #
@@ -232,53 +277,17 @@ exec sleep 40 && vscodium
 #exec sleep 50 && qbittorrent
 
 # Start vlc
-exec sleep 50 && vlc
+exec sleep 40 && vlc
+
+# Start Spotify
+exec sleep 40 && spotify
 
 # Start Sunamu
 #exec sleep 60 && sunamu
 
-
 ########################################
-#  Office and Productivity #############
+# Gaming                               #
 ########################################
-
-# Start ChatGPT
-exec sleep 30 && chat-gpt
-
-# Start HuggingChat
-#exec sleep 30 && firefoxpwa site launch 01GZ809WW5Y34MADZE4D0TAVHS
-
-
-########################################
-# Chat and IM                          #
-########################################
-
-# Start RipCord
-#exec sleep 60 && ripcord
-
-# Start Teams
-exec sleep 60 && teams
-
-# Start Slack
-exec sleep 60 && slack
-
-# Start TElegram
-#exec sleep 60 && telegram-desktop
 
 # Start Steam
 exec sleep 60 && flatpak run com.valvesoftware.Steam
-
-# Map Drives
-exec sleep 40 && mapit
-
-# Start Financials
-# Xero
-#exec sleep 40 && firefoxpwa site launch 01H8HBEQRHJXVWDV7CY6XAZ8AW
-
-# QBO
-#exec sleep 40 && firefoxpwa site launch 01GZ1M1VY13T291BVVV5TSGE4Z
-
-# Chase
-#exec sleep 40 && firefoxpwa site launch 01H960MR2RSEP4QVPCH0BX2X47
-
-

@@ -41,6 +41,7 @@ include $HOME/.config/sway/config.d/74-clamshell
 
 # include autostart apps
 include $HOME/.config/sway/config.d/80-autostart_my_apps
+include $HOME/.config/sway/config.d/81-autostart_my_PWAs
 
 # include themes
 include $HOME/.config/sway/config.d/90-theme
