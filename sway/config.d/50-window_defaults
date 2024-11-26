@@ -89,7 +89,8 @@ for_window [app_id="blueman-manager"] floating enable, resize set width 40 ppt h
 # Terminals
 ###################
 
-for_window [class=(?i)xfce4-terminal] focus
+# Foot
+for_window [app_id="foot"] focus, floating enable, border pixel 1, resize set width 40 ppt height 30 ppt
 
 # Tilix
 for_window [app_id="tilix"] focus, floating enable, sticky enable, border pixel 1, resize set width 40 ppt height 30 ppt
@@ -100,6 +101,8 @@ for_window [app_id="tilix"] focus, floating enable, sticky enable, border pixel 
 
 # Set no border for Chromium/FF
 for_window [app_id="(?i)(?:firefox|chromium)"] border none
+
+# Kill Firefox sharing indicator
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 
 ###################
@@ -108,45 +111,61 @@ for_window [app_id="firefox" title="Firefox — Sharing Indicator"] kill
 
 # Thunar File Copy/Overwrite
 for_window [app_id="thunar" title="Confirm to replace files"] focus, urgent enable, floating enable, sticky enable, border pixel 1, resize set width 40 ppt height 30 ppt
-for_window [app_id="thunar" title="File Operations Progress"] floating enable, sticky enable, border pixel 1, resize set width 20 ppt height 10 ppt
-for_window [app_id="thunar" title="File Operation Progress"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="thunar" title="File Operations Progress"] floating enable, border pixel 1, resize set width 20 ppt height 10 ppt
+for_window [app_id="thunar" title="File Operation Progress"] floating enable, border pixel 1, resize set width 20 ppt height 10 ppt
 
 ###################
 # Editors
 ###################
 
 # Mousepad
-for_window [app_id="mousepad"] floating enable, border pixel 1, sticky enable, resize set width 40 ppt height 30 ppt
+for_window [app_id="mousepad"] floating enable, sticky enable, border pixel 1, resize set width 40 ppt height 30 ppt
 
 ###################
 # Galculator
 ###################
 
 # set floating (nontiling)for apps needing it
-for_window [app_id="galculator"] floating enable, sticky enable, resize set width 20 ppt height 30 ppt
+for_window [app_id="galculator"] floating enable, sticky enable, border pixel 1, resize set width 20 ppt height 30 ppt
 
 ###################
 # OpenSnitch
 ###################
 
-for_window [app_id="opensnitch_ui"] urgent enable, floating enable, sticky enable, resize set width 60 ppt height 40 ppt
+for_window [app_id="opensnitch_ui"] floating enable, sticky enable, border pixel 1, resize set width 60 ppt height 40 ppt
 
 #######################################
-# Type Specific - Focus, Floating, and Sticky
+# Type Specific - Urgent, Focus, Floating, and Sticky
 #######################################
+
+###################
+# Urgent
+###################
+
+for_window [app_id="opensnitch_ui"] urgent enable, border pixel 5
 
 ###################
 # Focus
 ###################
 
-for_window [class=(?i)firefox] focus
+# Focus XFCE term on open
+for_window [class=(?i)xfce4-terminal] focus
+
+# Focus on galculator
+for_window [app_id="galculator"] focus
+
+# Focus FF term on open
+for_window [app_id="firefox"] focus
+
+# Focus Opensnitch when it prompts for FW rules
+for_window [app_id="opensnitch_ui"] focus
 
 ###################
-# Floating - Enable
+# Floating
 ###################
 
+# azote, gnome-disks
 for_window [app_id="(?i)(?:azote|gnome-disks)"] floating enable
-for_window [class="birdtray" instance="birdtray"] floating enable
 
 ###################
 # Floating (nontiling)
@@ -155,26 +174,12 @@ for_window [class="birdtray" instance="birdtray"] floating enable
 # set floating (nontiling) for special apps:
 for_window [class="Xsane" instance="xsane"] floating enable
 for_window [class="qt5ct" instance="qt5ct"] floating enable, resize set width 60 ppt height 50 ppt
-for_window [app_id="floating_shell_portrait"] floating enable, border pixel 1, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [title="htop"] floating enable, resize set width 50 ppt height 70 ppt
-for_window [title="gtop"] floating enable, resize set width 50 ppt height 70 ppt
+for_window [app_id="floating_shell_portrait"] floating enable, sticky enable, border pixel 1, resize set width 30 ppt height 40 ppt
+for_window [title="htop"] floating enable, border pixel 1, resize set width 50 ppt height 70 ppt
+for_window [title="gtop"] floating enable, border pixel 1, resize set width 50 ppt height 70 ppt
 
 ###################
 # Sticky
 ###################
 
 for_window [title="Picture in picture"] floating enable, sticky enable
-
-
-
-
-
-
-
-
-
-
-
-
-
-
