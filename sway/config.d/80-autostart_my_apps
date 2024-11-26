@@ -217,7 +217,7 @@ exec sleep 20 && obsidian
 #exec sleep 20 && logseq
 
 # Start MS To-Do
-exec sleep 20 && to-do
+exec sleep 20 && tod0
 
 ######################################
 # Storage                            #
