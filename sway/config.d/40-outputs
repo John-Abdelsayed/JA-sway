@@ -51,49 +51,65 @@ output "DP-4" {
 ########################################
 
 # Sec
-assign [class="(?i)bitwarden"] $ws2
+assign [instance: "bitwarden", class: "Bitwarden"] $ws2
+
+# PKM
+# assign [class="(?i)logseq"] $ws4
+assign [class="(?i)obsidian"] $ws4
+# assign [class="(?i)zotero"] $ws4
 
 # Browsers
 assign [app_id="firefox"] $ws5
-assign [class="chromium"] $ws6
+assign [instance: "chromium", class: "Chromium"] $ws6
 assign [app_id="LibreWolf"] $ws6
 
-# Email
-assign [app_id="evolution"] $ws10
-assign [class="(?i)thunderbird"] $ws10
+# Dev
+assign [class="(?i)vscodium"] $ws7
 
 # Chat
 assign [class="(?i)teams"] $ws9
 assign [class="(?i)slack"] $ws9
-assign [app_id="org.telegram.desktop"] $ws9
+# assign [app_id="org.telegram.desktop"] $ws9
 
-# Dev
-assign [class="(?i)vscodium"] $ws7
-assign [class="(?i)Github Desktop"] $ws13
+# Email
+assign [app_id="evolution"] $ws10
+assign [app_id="org.gnome.Evolution"] $ws10
+assign [class="(?i)thunderbird"] $ws10
 
-# PKM
-assign [class="(?i)logseq"] $ws4
-assign [class="(?i)obsidian"] $ws4
-assign [class="(?i)zotero"] $ws4
-
-# Productivity
-assign [class="(?i)ao"] $ws16
-assign [class="(?i)kuro"] $ws16
-
+# AGI
 # ChatGPT
-assign [class="chat-gpt"] $ws11
+assign [app_id="chat-gpt"] $ws11
 
-# Steam
-assign [class="steam"] $ws19
+# Alpaca
+assign [app_id="com.jeffser.Alpaca"] $ws11
+
+# Chatall
+assign [instance: "chatall", class: "chatall"] $ws11
 
 # File Explorer
 assign [class="(?i)'thunar"] $ws12
+
+# DevOps
+assign [class="(?i)Github Desktop"] $ws13
+
+# Productivity
+# assign [class="(?i)ao"] $ws16
+# assign [class="(?i)kuro"] $ws16
+
+# Finance
+# homebank
+assign [app_id="homebank"] $ws18
+
+# Portfolio Performance
+assign [app_id="Portfolio Performance"] $ws18
+
+# Steam
+assign [class="steam"] $ws19
 
 #Media
 assign [class="(?i)strawberry"] $ws20
 assign [class="(?i)vlc"] $ws20
 assign [class="(?i)qbittorrent"] $ws19
-
 
 # PWAS
 #######################################
