@@ -120,7 +120,7 @@ assign [app_id="FFPWA-01J85ZGQNW5110KGPP261H3254"] $ws12
 
 ########## Infrastructure ##########
 # OPNSense
-assign [app_id="FFPWA-01GQ572NP75DX9SX44V5N5E0WR"] $ws13
+assign [app_id="FFPWA-01J4NK309P295D8HMYH0J5Y07K"] $ws13
 # Portainer
 assign [app_id="FFPWA-01J4MB4EFNN3S8JX1XDQ0JKBYC"] $ws13
 # DNS 1
@@ -129,6 +129,8 @@ assign [app_id="FFPWA-01J4MAZZJAVFQYEWDE066EZKEQ"] $ws13
 assign [app_id="FFPWA-01J4MB0A3CJYRMR1GEPMCRSVZS"] $ws13
 # Grafana
 assign [app_id="FFPWA-01J4MB2HKQPR64QQRCSBVKJZAD"] $ws13
+# NXRP
+assign [app_id="FFPWA-01J99GQHAK49961EKBP6ZKXQKK"] $ws13
 
 
 ########## O365 ##########
