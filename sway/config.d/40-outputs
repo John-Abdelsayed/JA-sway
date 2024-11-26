@@ -51,7 +51,7 @@ output "DP-4" {
 ########################################
 
 # Sec
-assign [instance:"bitwarden", class:"Bitwarden"] $ws2
+# assign [class="Bitwarden",instance:"bitwarden"] $ws2
 
 # PKM
 # assign [class="(?i)logseq"] $ws4
@@ -60,7 +60,7 @@ assign [class="(?i)obsidian"] $ws4
 
 # Browsers
 assign [app_id="firefox"] $ws5
-assign [instance:"chromium", class:"Chromium"] $ws6
+#assign [instance:"chromium",class="Chromium"] $ws6
 assign [app_id="LibreWolf"] $ws6
 
 # Dev
@@ -84,7 +84,7 @@ assign [app_id="chat-gpt"] $ws11
 assign [app_id="com.jeffser.Alpaca"] $ws11
 
 # Chatall
-assign [instance:"chatall", class:"chatall"] $ws11
+#assign [instance:"chatall",class="Chatall"] $ws11
 
 # File Explorer
 assign [class="(?i)'thunar"] $ws12
