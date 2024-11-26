@@ -23,7 +23,8 @@
       "sway-taskbar"
     ],
     "modules-right": [
-      "button-help"
+      "executor-cpuav",
+      "executor-cpubar"
     ],
     "sway-taskbar": {
       "workspace-menu": [
@@ -191,7 +192,6 @@
       "window-margin-vertical": 4,
       "angle": 0.0
     },
-    
     "sway-workspaces": {
       "numbers": [
         "1",
