@@ -27,24 +27,24 @@ set $mod Mod4
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1   "1: - Terminal"
+set $ws1   "1: - Term"
 set $ws2   "2: - SecTerm"
 set $ws3   "3: - Infra"
-set $ws4   "4: - Journal"
+set $ws4   "4: - Cloud"
 set $ws5   "5: - FF"
 set $ws6   "6: - LW"
 set $ws7   "7: - Code"
 set $ws8   "8: - Dev"
 set $ws9   "9: - Chat"
 set $ws10  "10: - Mail"
-set $ws11  "11: - AI"
+set $ws11  "11: - Tasks"
 set $ws12  "12: - Files"
-set $ws13  "13: - GitHub"
-set $ws14  "14: - Gitea"
-set $ws15  "15: - Azure"
-set $ws16  "16: - Tasks"
-set $ws17  "17: - Cloud"
-set $ws18  "18: - Fin"
+set $ws13  "13: - Infra"
+set $ws14  "14: - Cloud"
+set $ws15  "15: - O365"
+set $ws16  "16: - AI"
+set $ws17  "17: - Fin"
+set $ws18  "18: - Jrnl"
 set $ws19  "19: - Rec"
 set $ws20  "20: - Media"
 
@@ -53,10 +53,10 @@ set $ws20  "20: - Media"
 #######################################
 
 # Set default terminal emulator
-set $term tilix
+set $term foot
 
 # Set default terminal emulator (Wayland)
-set $alt_term foot
+set $alt_term tilix
 
 # Set guake
 set $guaketoggle guake-toggle
