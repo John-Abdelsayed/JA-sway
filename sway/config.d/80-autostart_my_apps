@@ -72,7 +72,7 @@ exec_always nwg-panel -c ~/.config/nwg-panel/config -s preset-0.css
 ####################
 
 # Set up transparency
-exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
+# exec xcompmgr -c -C -t-5 -l-5 -r4.2 -o.55 &
 #exec picom -cb
 
 # Desktop notification daemons
