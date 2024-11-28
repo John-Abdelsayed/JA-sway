@@ -14,12 +14,19 @@ exec_always ~/.config/sway/scripts/import-gsettings
 # Borders                              #
 ########################################
 
-#border indicator on windows: 
-# DEPRECATED new_window pixel 0
-default_border pixel 1
+# Set border style for focused window. normal includes a border of thickness n and a title bar. pixel is
+# a border without title bar n pixels thick. Default is normal with border thickness 2. csd is short for
+# client-side-decorations, which allows the client to draw its own decorations.
+# border none|normal|csd|pixel [<n>]
+border normal pixel 1
 
-# thin borders
-hide_edge_borders none
+# Set default border style for new tiled windows.
+# default_border normal|none|pixel [<n>]
+default_border none
+
+# Set default border style for new floating windows. This only applies to windows that are spawned in
+# floating mode, not windows that become floating afterwards.           
+# default_floating_border normal|none|pixel [<n>]
 
 # Set inner/outer gaps
 gaps inner 4
@@ -29,8 +36,13 @@ gaps outer 4
 gaps vertical 4
 gaps horizontal 4
 
-# Thin borders:
+# If smart_borders are on, borders will only be enabled if the workspace has more than one visible child.
+# If smart_borders is set to no_gaps,borders will only be enabled if the workspace has more than one visible child and gaps equal to zero.
 smart_borders on
+
+# Hides window borders adjacent to the screen edges. Default is none. The --i3 option enables i3-compatible behavior to hide the title bar on
+# tabbed and stacked containers with one child. The smart|smart_no_gaps options are equivalent to  setting  smart_borders  smart|no_gaps  and
+hide_edge_borders none.
 
 ############################################
 # bar settings (input comes from swayblocks) #
