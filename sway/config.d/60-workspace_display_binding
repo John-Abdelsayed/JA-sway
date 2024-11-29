@@ -3,58 +3,58 @@
 ##############################################################################
 
 # Laptop = eDP-1
-# Main Display = DP-4
-# Side Display = DP-3
+# Main Display = DP-1
+# Side Display = DP-2
 
 # Change Terminals to alternate screens
-workspace $ws1 output DP-4
-workspace $ws3 output DP-3
-workspace $ws4 output DP-4
+workspace $ws1 output DP-1
+workspace $ws3 output DP-2
+workspace $ws4 output DP-1
 
 # Change one of the terminal screens to always
 # open on the laptop
 workspace $ws2 output eDP-1
 
 # Change Browsers to alternate screens
-workspace $ws5 output DP-4
-workspace $ws6 output DP-3
+workspace $ws5 output DP-1
+workspace $ws6 output DP-2
 
 # Change Dev/Code to alternate screens
-workspace $ws7 output DP-4
-workspace $ws8 output DP-3
+workspace $ws7 output DP-1
+workspace $ws8 output DP-2
 
 # Change Chat to main screen
-workspace $ws9 output DP-4
+workspace $ws9 output DP-1
 
 # Change Email to alternate screen
-workspace $ws10 output DP-3
+workspace $ws10 output DP-2
 
 # Change Tasks to alternate screen
-workspace $ws11 output DP-3
+workspace $ws11 output DP-2
 
 # Change Files to alternate screen
-workspace $ws12 output DP-3
+workspace $ws12 output DP-2
 
 # Change Infrastructure to alternate screen
-workspace $ws13 output DP-4
+workspace $ws13 output DP-1
 
 # Change Cloud to alternate screen
-workspace $ws14 output DP-3
+workspace $ws14 output DP-2
 
 # Change O365 to alternate screen
-workspace $ws15 output DP-3
+workspace $ws15 output DP-2
 
 # Change AI to alternate screen
-workspace $ws16 output DP-3
+workspace $ws16 output DP-2
 
 # Change Finance to main screen
-workspace $ws17 output DP-4
+workspace $ws17 output DP-1
 
 # Change PKM to alternate screen
-workspace $ws18 output DP-3
+workspace $ws18 output DP-2
 
 # Change Recreation to main source
-workspace $ws19 output DP-4
+workspace $ws19 output DP-1
 
 # Change Media to primary laptop screen
 workspace $ws20 output eDP-1
