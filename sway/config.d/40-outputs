@@ -25,7 +25,7 @@ output "eDP-1" {
     adaptive_sync on
     dpms on
 }
-output "DP-1" {
+output "DP-4" {
     mode  1920x1080@60.0Hz
     pos 5760 0
     transform normal
@@ -34,7 +34,7 @@ output "DP-1" {
     adaptive_sync on
     dpms on
 }
-output "DP-2" {
+output "DP-3" {
     mode  1920x1080@60.0Hz
     pos 7680 0
     transform normal
