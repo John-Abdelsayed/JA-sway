@@ -19,6 +19,7 @@ for_window [shell="x_wayland"] title_format "[XWayland] %class - %title"
 # Inhibit idle
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="Chromium"] inhibit_idle fullscreen
+for_window [app_id="caffeine"] inhibit_idle
 
 # Show a popup if the computer is in full screen
 popup_during_fullscreen smart
