@@ -59,13 +59,13 @@ exec caffeine start
 exec wlsunset -t 4500 -T 6500 -l -1 -L -1 -g 1.0
 
 # Set up autotiling (Experimental)
-exec_always nwg-autotiling
+# exec_always nwg-autotiling
 
 # Autotiling
 # exec autotiling
 
 # Execute nwg-panel
-exec_always nwg-panel -c ~/.config/nwg-panel/config -s preset-0.css
+# exec_always nwg-panel -c ~/.config/nwg-panel/config -s preset-0.css
 
 ####################
 # Desktop & Wallpaper
@@ -104,7 +104,7 @@ exec_always nwg-screenshot-applet
 # Sway Fader
 ######################################
 
-exec python3 ~/.config/sway/scripts/swayfader.py
+# exec python3 ~/.config/sway/scripts/swayfader.py
 
 ######################################
 # App Drawer
@@ -112,7 +112,7 @@ exec python3 ~/.config/sway/scripts/swayfader.py
 
 # nwg-drawer
 # exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
-exec_always nwg-drawer -r -c 6 -is 64 -fscol 2 -s preset-0.css -term foot -ft -pbexit 'nwg-dialog -p exit-sway -c "swaymsg exit"' -pblock 'nwg-lock' -pbpoweroff 'nwg-dialog -p poweroff -c "systemctl -i poweroff"' -pbreboot 'nwg-dialog -p reboot -c "systemctl reboot"' -pbsleep 'nwg-dialog -p sleep -c "systemctl suspend"' -pbsize 48
+# exec_always nwg-drawer -r -c 6 -is 64 -fscol 2 -s preset-0.css -term foot -ft -pbexit 'nwg-dialog -p exit-sway -c "swaymsg exit"' -pblock 'nwg-lock' -pbpoweroff 'nwg-dialog -p poweroff -c "systemctl -i poweroff"' -pbreboot 'nwg-dialog -p reboot -c "systemctl reboot"' -pbsleep 'nwg-dialog -p sleep -c "systemctl suspend"' -pbsize 48
 
 ######################################
 # Update Indicator                   #
@@ -263,6 +263,13 @@ exec sleep 30 && portfolio
 # Phone and Other Devices              #
 ########################################
 
+# Start scrcpy
+
+# Samsung Galaxy Note 9
+# (usb)  29945745161c7ece                device  SM_N960U1
+# Device: [samsung] samsung SM-N960U1 (Android 10)
+exec sleep 30 && scrcpy --always-on-top --select-usb
+
 # Start KDEConnect and connect to Excelsior
 #exec sleep 15 && kdeconnect-cli -n Excelsior
 
@@ -283,7 +290,7 @@ exec sleep 30 && portfolio
 exec sleep 40 && vlc
 
 # Start Spotify
-exec sleep 40 && spotify
+# exec sleep 40 && spotify
 
 # Start Sunamu
 #exec sleep 60 && sunamu
