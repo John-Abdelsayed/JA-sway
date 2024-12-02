@@ -1,7 +1,5 @@
 // -*- mode: jsonc -*-
-
 [{
-    
     "name": "top",
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
@@ -75,7 +73,11 @@
 
 // Configuration - modules-right
 
-    "modules-right": ["group/hardware"
+    "modules-right": ["group/hardware",
+        "custom/grimshot",
+        "custom/wfrecord",
+        "custom/vm",
+        "custom/containers"
     ],
         "group/hardware": {
                 "orientation": "inherit",
@@ -155,9 +157,38 @@
             "locked": "",
             "unlocked": ""
         }
+    },
+    "custom/grimshot": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "grimshot --notify save output - | swappy -f -",
+        "on-click-middle": "grimshot --notify save area - | swappy -f -",
+        "on-click-right": "grimshot --notify save window - | swappy -f -"
+    }, 
+    "custom/wfrecord": {
+        "format": "",
+        "tooltip": false,
+        "interval": "once",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/wfrecord-monitor.sh",
+        "on-click": "~/.config/waybar/scripts/wfrecord-record.sh",
+        "on-click-right": "~/.config/waybar/scripts/wfrecord-stop.sh",
+        "signal": 8
+    },
+    "custom/vm": {
+        "format": "   ",
+        "interval": 10,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/kvm-monitor.sh",
+        "on-click": "~/.config/waybar/scripts/kvm.sh"
+    },
+    "custom/containers": {
+        "format": "   ",
+        "interval": 10,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/containers-monitor.sh"
     }
 },
-
 // Bottom
 {
     "name": "bottom",
@@ -245,8 +276,8 @@
                       "pulseaudio",
                       "tray",
                       "power-profiles-daemon",
-                      "custom/power"],
-     "idle_inhibitor": {
+                    "custom/power"],
+    "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
@@ -301,5 +332,4 @@
         "on-click": "~/.config/sway/scripts/power_menu.sh",
         "tooltip": false
     }
-}
-]
+}]
