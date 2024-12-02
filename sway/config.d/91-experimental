@@ -69,3 +69,29 @@ bindsym $mod+F1           exec nwg-shell-help
 # set $display1       "Dell Inc. DELL P2414H VHVTW542165L"
 # set $display2       "Dell Inc. DELL P2418HT MYDM775F152L"
 
+# Wait until a StatusNotifierItem tray implementation is available and
+# process XDG autostart entries.
+#
+# This horror has to exist because
+#
+#  - SNI spec mandates that if `IsStatusNotifierHostRegistered` is not set,
+#    the client should fall back to the Freedesktop System Tray specification
+#    (XEmbed).
+#  - There are actual implementations that take this seriously and implement
+#    a fallback *even if* StatusNotifierWatcher is already DBus-activated.
+#  - https://github.com/systemd/systemd/issues/3750
+#
+exec /usr/lib/sway-systemd/wait-sni-ready && \
+    systemctl --user start sway-xdg-autostart.target
+
+
+# Apply system-wide XKB configuration stored in systemd-localed.
+#
+# The configuration can be viewed with `localectl` and modified
+# with `localectl set-x11-keymap`.
+#
+# Normal mode will pick up the configuration changes immediately
+# and oneshot mode will require a Sway config reload.
+
+# exec /usr/lib/sway-systemd/locale1-xkb-config
+exec_always /usr/lib/sway-systemd/locale1-xkb-config --oneshot
