@@ -14,9 +14,9 @@
 workspace_layout tabbed
 
 # Switch the current container between different layout styles
-# bindsym $mod+s layout stacking
-# bindsym $mod+g layout tabbed
-# bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+g layout tabbed
+bindsym $mod+e layout toggle split
 
 ##########################
 # Basic Focus Actions
@@ -31,7 +31,7 @@ bindsym $mod+r reload
 # Make the current focus fullscreen
 #change_binding
 bindsym $mod+F11 fullscreen
-#bindsym $mod+f fullscreen
+bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 #change_binding
@@ -83,7 +83,7 @@ bindsym $mod+v split v
 ##########################
 
 # changing border style
-bindsym $mod+b border toggle
+#bindsym $mod+b border toggle
 
 # change gaps
 bindsym $mod+plus                gaps inner current plus  5
@@ -171,8 +171,8 @@ bindsym $mod+Shift+e exec $powermenu
 # bindsym $mod+d exec $dock
 
 # Launch editor
-bindsym $mod+e exec $editor
-bindsym $mod+Mod1+e exec $alt_editor
+bindsym $mod+m exec $editor
+bindsym $mod+Mod1+m exec $alt_editor
 
 # Launch browser
 bindsym $mod+w exec $browser

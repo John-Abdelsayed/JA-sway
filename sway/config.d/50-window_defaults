@@ -19,8 +19,7 @@
 for_window [shell="xwayland"] title_format "[XWayland] - %title"
 for_window [shell="x_wayland"] title_format "[XWayland] - %title"
 # For applications using XDG, add 'XWayland' to the TITLE
-# for_window [shell="xdg_shell"] title_format "[XDG] - %title (%app_id)"
-for_window [shell="xdg_shell"] title_format "[XDG] - %title"
+for_window [shell="xdg_shell"] title_format "[XWayland] - %title"
 
 # By window role
 for_window [window_role="pop-up"] floating enable
