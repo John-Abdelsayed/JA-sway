@@ -161,7 +161,7 @@ for_window [app_id="opensnitch_ui"] urgent enable, floating enable, sticky enabl
 ###################
 
 # Focus XFCE term on open
-for_window [class=(?i)xfce4-terminal] focus
+for_window [class="(?i)xfce4-terminal"] focus
 
 # Focus on galculator
 for_window [app_id="galculator"] focus

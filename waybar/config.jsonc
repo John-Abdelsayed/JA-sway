@@ -3,16 +3,16 @@
     "name": "top",
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "height": 30, // Auto-height is used when commented
+    "height": 30, // Auto-height is used when commented
     // "width": 1280, // Full screen width when commented
     "spacing": 6, // Gaps between modules (in px)
     // See `man waybar` for more configuration options
 
 // Configuration - modules-left
     "modules-left": [
+            "custom/media",
             "sway/scratchpad",
-            "mpd",
-            "custom/media"
+            "mpd"
         ],
     "sway/scratchpad": {
         "format": "{icon} {count}",

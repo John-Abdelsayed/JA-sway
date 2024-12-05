@@ -11,8 +11,9 @@
 ####################
 
 exec swayidle idlehint 1
+
+set $lock "swaylock -C ~/.config/swaylock/config"
 exec_always swayidle -w before-sleep "$lock"
-set $lock swaylock -C ~/.config/swaylock/config
 
 ####################
 # Audio
@@ -281,7 +282,7 @@ exec sleep 30 && scrcpy --always-on-top --select-usb
 ########################################
 
 # Start strawberry
-#exec sleep 50 && strawberry
+exec sleep 50 && strawberry
 
 # Start QbitTorrent
 #exec sleep 50 && qbittorrent
