@@ -3,20 +3,20 @@
     "name": "top",
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 30, // Auto-height is used when commented
+    // "height": 20, // Auto-height is used when commented
     // "width": 1280, // Full screen width when commented
     "spacing": 6, // Gaps between modules (in px)
     // See `man waybar` for more configuration options
 
 // Configuration - modules-left
     "modules-left": [
-            "custom/media",
             "sway/scratchpad",
-            "mpd"
+            "mpd",
+            "custom/media"
         ],
     "sway/scratchpad": {
         "format": "{icon} {count}",
-        "show-empty": false,
+        "show-empty": true,
         "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
@@ -73,18 +73,19 @@
 
 // Configuration - modules-right
 
-    "modules-right": ["group/hardware",
+    "modules-right": [
         "custom/grimshot",
         "custom/wfrecord",
         "custom/vm",
-        "custom/containers"
+        "custom/containers",
+        "group/hardware"
     ],
         "group/hardware": {
                 "orientation": "inherit",
                 "drawer": {
                    "transition-duration": 500,
                    "children-class": "hardware",
-                   "transition-left-to-right": false,
+                   "transition-left-to-right": false
                 },
                 "modules": [
                     "temperature",
@@ -101,7 +102,7 @@
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
+        "format": "{temperatureF}°F {icon}",
         "format-icons": ["", "", ""]
     },
     "battery": {
@@ -117,7 +118,7 @@
         "format": "{usage:>3}%",
         "states": {
             "warning": 70,
-            "critical": 90,
+            "critical": 90
         },
         "on-click": "footclient -T waybar_htop -e htop"
     },
@@ -152,7 +153,7 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "format": "{name}  {icon} ",
         "format-icons": {
             "locked": "",
             "unlocked": ""
@@ -164,7 +165,7 @@
         "on-click": "grimshot --notify save output - | swappy -f -",
         "on-click-middle": "grimshot --notify save area - | swappy -f -",
         "on-click-right": "grimshot --notify save window - | swappy -f -"
-    }, 
+    },
     "custom/wfrecord": {
         "format": "",
         "tooltip": false,
@@ -241,7 +242,7 @@
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>",
-        "tooltip": false
+        "tooltip": true
     },
 
 // Configuration - modules-center
@@ -261,7 +262,7 @@
                 "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
                 "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
                 "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-            },
+            }
         },
         "actions": {
             "on-scroll-up": "shift_up",
