@@ -196,11 +196,11 @@ bindsym $mod+Mod1+d exec $alt_menu
 
 # Cycle Through Windows - wofi
 # layout toggle
-bindsym Mod1+Tab layout toggle tabbed stacking split
-bindsym $mod+Tab layout toggle splitv splith
-#bindsym $mod+Tab exec $cycle
+bindsym $mod+Mod1+t layout toggle tabbed stacking split
+bindsym $mod+t layout toggle splitv splith
 
 # Search through Windows
+bindsym $mod+Tab exec $cycle
 bindsym F10 exec $cycle
 
 #Launcher
@@ -327,10 +327,10 @@ bindsym Shift+Control+Print exec grim -g "$(slurp)" - | wl-copy
 bindsym print exec grim -g "$(slurp)" - | swappy -f -
 
 # Screenshot a window and pipe to swappy
-bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
+bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot/screenshot_window.sh
 
 # Screenshot the current display and pipe to swappy
-bindsym Shift+Print exec ~/.config/sway/scripts/screenshot_display.sh
+bindsym Shift+Print exec ~/.config/sway/scripts/screenshot/screenshot_display.sh
 
 #######################################
 # Clipboard

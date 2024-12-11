@@ -11,8 +11,6 @@
 ####################
 
 exec swayidle idlehint 1
-
-set $lock "swaylock -C ~/.config/swaylock/config"
 exec_always swayidle -w before-sleep "$lock"
 
 ####################
@@ -80,7 +78,7 @@ exec wlsunset -t 4500 -T 6500 -l -1 -L -1 -g 1.0
 # exec dbus-launch dunst --config ~/.config/dunst/dunstrc
 # exec mako
 # exec zenity
-exec swaync -s /home/b0nz1cu5/.config/swaync/preset-0.css
+exec swaync -s $HOME/.config/swaync/preset-0.css
 
 # Set wallpaper
 #exec nitrogen --random --restore
@@ -199,8 +197,8 @@ exec sleep 30 && slack
 
 # Start Email clients
 # Start Thunderbird
-exec sleep 20 && thunderbird
-exec sleep 25 && birdtray
+#exec sleep 20 && thunderbird
+#exec sleep 25 && birdtray
 
 # Start Evolution
 #exec sleep 30 && GTK_THEME=Yaru-dark evolution

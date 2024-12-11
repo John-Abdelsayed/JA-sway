@@ -61,13 +61,7 @@ bindsym $mod+F1           exec nwg-shell-help
 	#}
 	#bindsym $mod+t mode $mode_switch_window
 
-####################
-# Manages displays
-####################
 
-# Set specific displays to specific variables
-# set $display1       "Dell Inc. DELL P2414H VHVTW542165L"
-# set $display2       "Dell Inc. DELL P2418HT MYDM775F152L"
 
 # Wait until a StatusNotifierItem tray implementation is available and
 # process XDG autostart entries.

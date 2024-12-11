@@ -114,7 +114,7 @@ set $alt_menu wofi -m $(expr $(swaymsg -t get_tree | jq '.nodes | map([recurse(.
 # Wofi does not have the ability to do window switching on its own as there is no way to do this with wayland/wlroots protocols
 # However if you're using sway you can use swaymsg with dmenu mode  to  accomplish  it.
 # The  following script can be used to do window switching:
-set $cycle swaymsg -t get_tree | jq -r '.nodes[].nodes[] | if .nodes then [recurse(.nodes[])] else [] end + .floating_nodes | .[] | select(.nodes==[]) | ((.id | tostring) + " " + .name)' | wofi --show dmenu | { read -r id name swaymsg "[con_id=$id]" focus }
+set $cycle swaymsg -t get_tree | jq -r '.nodes[].nodes[] | if .nodes then [recurse(.nodes[])] else [] end + .floating_nodes | .[] | select(.nodes==[]) | ((.id | tostring) + " " + .name)' | wofi --show dmenu | read -r id name swaymsg "[con_id=$id]" focus
 
 # Power Menu
 set $powermenu nwg-bar
@@ -132,3 +132,9 @@ set $blu2th bluetooth-manager
 
 # Set the exit to perform launcher actions
 set $exit $launcher
+
+####################
+# Idle configuration
+####################
+
+set $lock swaylock -C ~/.config/swaylock/config
