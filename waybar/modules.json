@@ -60,15 +60,17 @@
         ]
     },
     "custom/media": {
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
+    "format": "{0} {1}",
+    //"format": "{}",
+    "return-type": "json",
+    "max-length": 40,
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl stop",
+    "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "escape": true,
+    "exec": "python3 $HOME/.config/waybar/mediaplayer.py 2> /dev/null"
     },
     "pulseaudio": {
         "scroll-step": 2,

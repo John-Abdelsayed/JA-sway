@@ -1,22 +1,39 @@
 * {
     border: none;
-    border-radius: 0;
-    font-family: MesloLGS Nerd Font;
+    border-radius: 0px;
+    font-family: "Hack Nerd Font Mono Regular", "MesloLGS Nerd Font", "Arial", "Helvetica", "sans-serif";
+    font-size: 10px;
     min-height: 0;
-    margin: 1px;
-    padding: 0;
 }
 
 #waybar {
-    background: transparent;
-    color: #e3e3ea;
-    background-color: #19191e;
-    font-family: MesloLGS Nerd Font;
-    font-size: 10px;
+    background: rgba(0, 0, 0, 0);
+    transition-property: background-color;
+    transition-duration: .5s;
+    font-family: "Hack Nerd Font Mono Regular", "MesloLGS Nerd Font", "Arial", "Helvetica", "sans-serif";
+
+}
+
+#waybar.top {
+    background: rgba(0, 0, 0, 0);
+    transition-property: background-color;
+    transition-duration: .5s;
+    font-family: "Hack Nerd Font Mono Regular", "MesloLGS Nerd Font", "Arial", "Helvetica", "sans-serif";
+}
+
+#waybar.bottom {
+    background: rgba(0, 0, 0, 0);
+    transition-property: background-color;
+    transition-duration: .5s;
+    font-family: "Hack Nerd Font Mono Regular", "MesloLGS Nerd Font", "Arial", "Helvetica", "sans-serif";
+
 }
 
 window#waybar {
-    background: transparent;
+    font-family: "Hack Nerd Font Mono Regular", "MesloLGS Nerd Font", "Arial", "Helvetica", "sans-serif";
+
+    background: rgba(0, 0, 0, 0);
+    transition: background .3s;
 }
 
 window#waybar.hidden {
@@ -26,9 +43,9 @@ window#waybar.hidden {
 #workspaces {
     margin-right: 8px;
     border-radius: 10px;
-    transition: none;
+    opacity: 0.90;
     background: #383c4a;
-    font-size: 10px;
+    padding: 5px;
 }
 
 #workspaces button {
@@ -97,20 +114,7 @@ window#waybar.hidden {
 #clock {
     padding-left: 16px;
     padding-right: 16px;
-    border-radius: 10px 0px 0px 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
-}
-
-#custom-launcher {
-    margin-left: 15px;
-    margin-right: 10px;
-}
-
-#custom-weather {
-    padding-right: 16px;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 10px;
     transition: none;
     color: #ffffff;
     background: #383c4a;
@@ -129,16 +133,6 @@ window#waybar.hidden {
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
-}
-
-#custom-mem {
-    margin-right: 8px;
-    padding-left: 16px;
-    padding-right: 16px;
-    border-radius: 10px;
-    transition: none;
-    color: #ffffff;
-    background: #383c4a;
 }
 
 #memory {
@@ -227,14 +221,8 @@ window#waybar.hidden {
 @keyframes blink {
     to {
         background-color: #ffffff;
-        color: #000000;
+        color: #b32727;
     }
-}
-
-#custom-power {
-    margin-left:10px;
-    margin-right:10px;
-    font-size:12px;
 }
 
 #hardware {
@@ -243,68 +231,129 @@ window#waybar.hidden {
     font-size: 12px;
 }
 
-#custom-notification {
-    font-family: "MesloLGS Nerd Font";
+#privacy,
+#privacy-item,
+#privacy-item.screenshare,
+#privacy-item.audio-in,
+#privacy-item.audio-out
+{
+    border-radius: 10px;
+    margin-right: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
+
+#systemd-failed-units,
+#systemd-failed-units.ok,
+#systemd-failed-units.degraded
+{
+    border-radius: 10px;
+    margin-right: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #383c4a;
+    color: #ffffff;
+}
+
+#custom-launcher {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 10px;
+    background: #383c4a;
+}
+
+#custom-mediaplayer {
+    color: black;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
 
 #custom-media {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-    padding: 10px 10px;
     color: black;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-right: 5px;
 }
 
 #custom-media.custom-spotify {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-}
+    padding: 10px;
+    color: black;
+    border-radius: 10px;
+    margin-right: 5px;}
 
 #custom-media.custom-vlc {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-}
+    padding: 10px;
+    color: black;
+    border-radius: 10px;
+    margin-right: 5px;}
 
 #custom-media.custom-strawberry {
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
-}
-
-#privacy {
+    padding: 10px;
+    color: black;
     border-radius: 10px;
-    margin-right: 5px;
+    margin-right: 5px;}
+
+#custom-mem {
+    margin-right: 8px;
     padding-left: 16px;
     padding-right: 16px;
-    font-family: "MesloLGS Nerd Font"
-    }
-#privacy-item {
-        font-family: "MesloLGS Nerd Font"
-    }
-#privacy-item.screenshare {
-        font-family: "MesloLGS Nerd Font"
-    }
-#privacy-item.audio-in {
-        font-family: "MesloLGS Nerd Font"
-    }
-#privacy-item.audio-out {
-        font-family: "MesloLGS Nerd Font"
-    }
-
-
-#systemd-failed-units {
-        font-family: "MesloLGS Nerd Font"
-    }
-#systemd-failed-units.ok {
-        font-family: "MesloLGS Nerd Font"
-    }
-#systemd-failed-units.degraded {
-        font-family: "MesloLGS Nerd Font"
-    }
+    border-radius: 10px;
+    transition: none;
+    color: #ffffff;
+    background: #383c4a;
+}
 
 #custom-notification {
     border-radius: 10px;
     margin-right: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #383c4a;
+    color: #ffffff;
+}
+
+#custom-power {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 12px;
+    border-radius: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #383c4a;
+    color: #ffffff;
+}
+
+#custom-weather {
+    border-radius: 10px;
+    margin-right: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #383c4a;
+    color: #ffffff;
+}
+
+#power-profiles-daemon {
+    border-radius: 10px;
+    margin-right: 5px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #383c4a;
+    color: #ffffff;
+}
+
+#idle_inhibitor {
+    border-radius: 10px;
+    margin-right: 10px;
     padding-left: 16px;
     padding-right: 16px;
     background-color: #383c4a;

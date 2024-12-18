@@ -1,0 +1,72 @@
+// -*- mode: jsonc -*-
+"include": [
+    "~/.config/waybar/modules.json"
+],
+[
+    {
+        "name": "top",
+        "layer": "top",
+        "reload_style_on_change": true,
+        "position": "top",
+        "spacing": 10,
+        "modules-left": [
+                "tray",
+                "sway/scratchpad"
+            ],
+        "modules-center": [
+            "custom/media"
+        ],
+        "modules-right": [
+            "privacy",
+            "custom/weather",
+            "custom/grimshot",
+            "custom/wfrecord",
+            "custom/vm",
+            "custom/containers",
+            "systemd-failed-units",
+            "group/hardware",
+            "pulseaudio"
+        ],
+            "group/hardware": {
+                    "orientation": "inherit",
+                    "drawer": {
+                        "transition-duration": 500,
+                        "children-class": "hardware",
+                        "transition-left-to-right": false
+                    },
+                    "modules": [
+                        "temperature",
+                        "battery",
+                        "cpu",
+                        "memory",
+                        "disk",
+                        "network",
+                        "custom/keyboard-layout"
+                    ]
+        }
+    },
+    {
+        "name": "bottom",
+        "layer": "top",
+        "position": "bottom",
+        "spacing": 6,
+        "modules-left": [
+            "custom/launcher",
+            "sway/workspaces",
+            "sway/mode"
+        ],
+        "modules-center": [
+            "sway/window"
+        ],
+        "modules-right": [
+            "custom/notification",
+            "idle_inhibitor",
+            "backlight",
+            "power-profiles-daemon",
+            "clock",
+            "custom/power"
+        ]
+    }
+]
+
+

@@ -56,7 +56,7 @@ class PlayerManager:
         logger.info(f"Initialize new player: {player.name}")
         player = Playerctl.Player.new_from_name(player)
         player.connect("playback-status",
-        self.on_playback_status_changed, None)
+                       self.on_playback_status_changed, None)
         player.connect("metadata", self.on_metadata_changed, None)
         self.manager.manage_player(player)
         self.on_metadata_changed(player, player.props.metadata)
@@ -68,8 +68,8 @@ class PlayerManager:
         logger.debug(f"Writing output: {text}")
 
         output = {"text": text,
-                "class": "custom-" + player.props.player_name,
-                "alt": player.props.player_name}
+                  "class": "custom-" + player.props.player_name,
+                  "alt": player.props.player_name}
 
         sys.stdout.write(json.dumps(output) + "\n")
         sys.stdout.flush()
@@ -105,7 +105,7 @@ class PlayerManager:
         current_player = self.get_first_playing_player()
         if current_player is not None:
             self.on_metadata_changed(current_player, current_player.props.metadata)
-        else:
+        else:    
             self.clear_output()
 
     def on_metadata_changed(self, player, metadata, _=None):
