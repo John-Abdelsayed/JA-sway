@@ -59,4 +59,34 @@ workspace $ws19 output DP-4
 # Change Media to primary laptop screen
 workspace $ws20 output eDP-1
 
+# Change Tasks to alternate screen
+workspace $ws21 output DP-3
+
+# Change Files to alternate screen
+workspace $ws22 output DP-3
+
+# Change Infrastructure to alternate screen
+workspace $ws23 output DP-4
+
+# Change Cloud to alternate screen
+workspace $ws24 output DP-3
+
+# Change O365 to alternate screen
+workspace $ws25 output DP-3
+
+# Change AI to alternate screen
+workspace $ws26 output DP-3
+
+# Change Finance to main screen
+workspace $ws27 output DP-4
+
+# Change PKM to alternate screen
+workspace $ws28 output DP-3
+
+# Change Recreation to main source
+workspace $ws29 output DP-4
+
+# Change Media to primary laptop screen
+workspace $ws30 output eDP-1
+
 ########################################

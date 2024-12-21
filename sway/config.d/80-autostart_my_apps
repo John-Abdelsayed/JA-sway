@@ -61,7 +61,7 @@ exec wlsunset -t 4500 -T 6500 -l -1 -L -1 -g 1.0
 # exec_always nwg-autotiling
 
 # Autotiling
-# exec autotiling
+exec autotiling
 
 # Execute nwg-panel
 # exec_always nwg-panel -c ~/.config/nwg-panel/config -s preset-0.css
@@ -78,12 +78,13 @@ exec wlsunset -t 4500 -T 6500 -l -1 -L -1 -g 1.0
 # exec dbus-launch dunst --config ~/.config/dunst/dunstrc
 # exec mako
 # exec zenity
-exec swaync -s $HOME/.config/swaync/preset-0.css
+exec swaync -c $HOME/.config/swaync/config.jsonc -s $HOME/.config/swaync/preset-0.css
+#exec swaync -c $HOME/.config/swaync/configA.json -s $HOME/.config/swaync/styleA.css
 
 # Set wallpaper
 #exec nitrogen --random --restore
 #exec feh --recursive --bg-fill --randomize /usr/share/endeavouros/backgrounds/endeavouros_sway.png
-#exec swaybg
+exec swaybg
 exec variety
 
 
@@ -103,7 +104,7 @@ exec_always nwg-screenshot-applet
 # Sway Fader
 ######################################
 
-# exec python3 ~/.config/sway/scripts/swayfader.py
+exec python3 ~/.config/sway/scripts/swayfader.py
 
 ######################################
 # App Drawer
@@ -166,11 +167,12 @@ exec sleep 15 && librewolf
 #  Artificial Intelligence (AI)        #
 ########################################
 
-# Start ChatGPT
-exec sleep 30 && chat-gpt
+# Start ollama
+exec sleep 30 && ollama serve
 
 # Start Alpaca
 exec sleep 30 && alpaca
+exec sleep 30 && alpaca_search_provider
 
 # Start Chatall
 exec sleep 30 && chatall
@@ -203,7 +205,7 @@ exec sleep 30 && slack
 # Start Evolution
 #exec sleep 30 && GTK_THEME=Yaru-dark evolution
 exec sleep 20 && evolution
-exec sleep 25 && evolution-on
+exec sleep 25 && evolution-on-appindicator
 
 ######################################
 # PKM                                #
@@ -219,17 +221,17 @@ exec sleep 20 && obsidian
 #exec sleep 20 && logseq
 
 # Start MS To-Do
-exec sleep 20 && tod0
+# exec sleep 20 && tod0
 
 ######################################
 # Storage                            #
 ######################################
 
 # Start dropbox
-exec sleep 20 && dropbox
+#exec sleep 20 && dropbox
 
 # Start synology client
-exec sleep 20 && synology-drive
+exec sleep 60 && synology-drive
 
 # Start onedrive
 # exec sleep 20 && onedrive
@@ -244,6 +246,12 @@ exec sleep 20 && synology-drive
 
 # Start GitHub Desktop
 exec sleep 30 && github-desktop
+
+# Start VSCodium
+exec sleep 30 && vscodium
+
+# Start Jupyter
+exec sleep 30 && jupyter-notebook
 
 # Start VSCodium
 exec sleep 30 && vscodium
@@ -263,11 +271,13 @@ exec sleep 30 && portfolio
 ########################################
 
 # Start scrcpy
-
 # Samsung Galaxy Note 9
 # (usb)  29945745161c7ece                device  SM_N960U1
 # Device: [samsung] samsung SM-N960U1 (Android 10)
-exec sleep 30 && scrcpy --always-on-top --select-usb
+exec sleep 30 && scrcpy --tcpip --no-audio --stay-awake  --window-width=9 --window-height=16 --window-borderless --legacy-paste
+
+# Start localsend
+exec sleep 30 && localsend --hidden
 
 # Start KDEConnect and connect to Excelsior
 #exec sleep 15 && kdeconnect-cli -n Excelsior
@@ -279,6 +289,9 @@ exec sleep 30 && scrcpy --always-on-top --select-usb
 # Media                                #
 ########################################
 
+# Start Playerctl
+exec sleep 30 && playerctld daemon
+
 # Start strawberry
 exec sleep 50 && strawberry
 
@@ -287,6 +300,9 @@ exec sleep 50 && strawberry
 
 # Start vlc
 exec sleep 40 && vlc
+
+# TuxTV
+exec sleep 40 && freetuxtv
 
 # Start Spotify
 # exec sleep 40 && spotify
@@ -299,4 +315,45 @@ exec sleep 40 && vlc
 ########################################
 
 # Start Steam
-exec sleep 60 && flatpak run com.valvesoftware.Steam
+exec sleep 90 && steam
+
+# Start Heroic
+exec sleep 90 && heroic
+
+# Start Chiaki
+#exec sleep 90 && chiaki
+
+# Start ES-DE
+#exec sleep 90 && es-de
+
+########################################
+# Art and Music                        #
+########################################
+
+# Start Gimp
+exec sleep 120 && gimp
+
+# Start Inkscape
+exec sleep 120 && inkscape
+
+# Start OpenToonz
+exec sleep 120 && opentoonz
+
+# Start Ardour
+exec sleep 120 && ardour8-new_empty_session
+
+# Start Blender
+exec sleep 120 && blender
+
+# Start MuseScore
+exec sleep 120 && mscore
+
+########################################
+# Systems                              #
+########################################
+
+# Start DBeaver
+exec sleep 30 && dbeaver
+
+# Start Virt-Manager
+exec sleep 30 && virt-manager

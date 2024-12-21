@@ -10,36 +10,55 @@
         "modules-left": [
                 "tray",
                 "sway/scratchpad"
-            ],
+        ],
         "modules-center": [
-            "custom/media",
             "custom/mediaplayer"
         ],
-        "custom/media": {
-            "format": "{0} {1}",
-            //"format": "{}",
-            "return-type": "json",
-            "max-length": 40,
-            "on-click": "playerctl play-pause",
-            "on-click-right": "playerctl stop",
-            "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-            "on-scroll-up": "playerctl next",
-            "on-scroll-down": "playerctl previous",
-            "escape": true,
-            "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
-        },
         "modules-right": [
-            "privacy",
             "custom/weather",
-            "custom/grimshot",
-            "custom/wfrecord",
-            "custom/vm",
-            "custom/containers",
-            "systemd-failed-units",
+            "group/privgroup",
+            "group/screenrecord",
+            "group/system",
             "group/hardware",
-            "pulseaudio"
+            "wireplumber"
         ],
-            "group/hardware": {
+                "group/privgroup": {
+                    "orientation": "inherit",
+                    "drawer": {
+                        "transition-duration": 500,
+                        "children-class": "system",
+                        "transition-left-to-right": false
+                    },
+                    "modules": [
+                        "privacy"
+                    ]
+                },
+                "group/system": {
+                    "orientation": "inherit",
+                    "drawer": {
+                        "transition-duration": 500,
+                        "children-class": "system",
+                        "transition-left-to-right": false
+                    },
+                    "modules": [
+                        "systemd-failed-units",
+                        "custom/vm",
+                        "custom/containers"
+                    ]
+                },
+                "group/screenrecord": {
+                    "orientation": "inherit",
+                    "drawer": {
+                        "transition-duration": 500,
+                        "children-class": "screenrecord",
+                        "transition-left-to-right": false
+                    },
+                    "modules": [
+                        "custom/grimshot",
+                        "custom/wfrecord"
+                    ]
+                },
+                "group/hardware": {
                     "orientation": "inherit",
                     "drawer": {
                         "transition-duration": 500,
@@ -47,15 +66,15 @@
                         "transition-left-to-right": false
                     },
                     "modules": [
-                        "temperature",
                         "battery",
+                        "temperature",
                         "cpu",
                         "memory",
                         "disk",
                         "network",
                         "custom/keyboard-layout"
                     ]
-        },
+                },
             "tray": {
                 "icon-size": 16,
                 "spacing": 10,
@@ -65,7 +84,7 @@
                 "format": "{icon} {count}",
                 "show-empty": true,
                 "format-icons": [
-                    "",
+                    "",
                     ""
                 ],
                 "tooltip": true,
@@ -93,6 +112,30 @@
                     }
                 ]
             },
+            "wireplumber": {
+                "scroll-step": 2,
+                "format": "{volume}% {icon}",
+                "format-bluetooth": "{volume}%  ",
+                "format-bluetooth-muted": "  ",
+                "format-muted": " ",
+                "format-source": "{volume}% ",
+                "format-source-muted": "",
+                "format-icons": {
+                    "headphone": "",
+                    "hands-free": "",
+                    "headset": "",
+                    "phone": "",
+                    "portable": "",
+                    "car": "",
+                    "default": [
+                        "",
+                        "",
+                        ""
+                    ]
+                },
+            "on-click": "pavucontrol",
+            "on-click-right": "pavucontrol"
+            },
             "pulseaudio": {
                 "scroll-step": 2,
                 "format": "{volume}% {icon} {format_source}",
@@ -117,8 +160,21 @@
                 "on-click": "pavucontrol",
                 "on-click-right": "pavucontrol"
             },
+            "custom/mediaplayer": {
+                "format": "{0} {1}",
+                //"format": "{}",
+                "return-type": "json",
+                "max-length": 60,
+                "on-click": "playerctl play-pause",
+                "on-click-right": "playerctl stop",
+                "smooth-scrolling-threshold": 1, // This value was tested using a trackpad, it should be lowered if using a mouse.
+                "on-scroll-up": "playerctl next",
+                "on-scroll-down": "playerctl previous",
+                "escape": true,
+                "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+            },
             "custom/weather": {
-                "exec": "${HOME}/.config/waybar/scripts/get_weather.sh Chicago+America",
+                "exec": "${HOME}/.config/waybar/scripts/weather/get_weather.sh Chicago+America",
                 "return-type": "json",
                 "format": "{}",
                 "tooltip": true,
@@ -165,8 +221,8 @@
                 "critical-threshold": 80,
                 "format": "{temperatureF}°F {icon}",
                 "format-icons": [
-                    "",
                     "",
+                    "",
                     ""
                 ]
             },
@@ -249,13 +305,24 @@
             "sway/window"
         ],
         "modules-right": [
+            "group/control",
             "custom/notification",
-            "idle_inhibitor",
-            "backlight",
-            "power-profiles-daemon",
             "clock",
             "custom/power"
         ],
+            "group/control": {
+                "orientation": "inherit",
+                "drawer": {
+                    "transition-duration": 500,
+                    "children-class": "system",
+                    "transition-left-to-right": false
+                },
+                "modules": [
+                    "idle_inhibitor",
+                    "backlight",
+                    "power-profiles-daemon"
+                ]
+            },
             "custom/launcher": {
                 "format": "<span size='x-large'></span>",
                 "on-click": "exec nwg-drawer",

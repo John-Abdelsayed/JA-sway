@@ -200,3 +200,48 @@ assign [class="(?i)vlc"] $ws20
 # Netflix
 assign [app_id="FFPWA-01JCSK69G2GM70FNAPA4DS5M0X"] $ws20
 
+######### Phone and Android ###########
+
+# scrcpy
+assign [class="(?i)scrcpy"] $ws21
+
+# Android Studio
+assign [class="(?i)jetbrains-studio"] $ws22
+###########################
+
+######### Music ###########
+
+# MuseScore
+assign [class="MuseScore4"] $ws23
+
+# Ardour
+assign [class="Ardour"] $ws24
+
+###########################
+
+######### Drawing and Animating #########
+
+# Inkscape
+assign [app_id="org.inkscape.Inkscape"] $ws25
+
+#LibreDraw
+assign [app_id="libreoffice-draw"] $ws25
+
+# OpenToonz
+assign [app_id="OpenToonz"] $ws26
+
+###########################
+
+######### Database ########
+
+# DBeaver
+assign [app_id="DBeaver"] $ws27
+
+###########################
+
+######### Remote, VM, Docker ##########
+
+# Remote
+assign [ app_id="OpenToonz"] $ws28
+
+###########################

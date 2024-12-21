@@ -45,8 +45,18 @@ set $ws15  "15: - O365"
 set $ws16  "16: - AI"
 set $ws17  "17: - Fin"
 set $ws18  "18: - Jrnl"
-set $ws19  "19: - Rec"
+set $ws19  "19:󱤙 - Gaming"
 set $ws20  "20: - Media"
+set $ws21  "21: - Phone"
+set $ws22  "22: - Android"
+set $ws23  "23: - Music"
+set $ws24  "24: - Produce"
+set $ws25  "25:󰽉 - Drawing"
+set $ws26  "26:󰽉 - Animate"
+set $ws27  "27: - Database"
+set $ws28  "28:󰢹 - Remote"
+set $ws29  "29: - VM"
+set $ws30  "30: - Docker"
 
 #######################################
 # Terminal                            #
@@ -66,7 +76,7 @@ set $guake guake
 # Browser                             #
 #######################################
 
-set $browser MOZ_ENABLE_WAYLAND=1 firefox
+set $browser MOZ_ENABLE_WAYLAND=1 firefoxrust
 #set $browser firefox
 set $alt_browser librewolf
 
