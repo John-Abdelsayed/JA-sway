@@ -76,7 +76,8 @@ set $guake guake
 # Browser                             #
 #######################################
 
-set $browser MOZ_ENABLE_WAYLAND=1 firefoxrust
+set $browser MOZ_ENABLE_WAYLAND=1 firefox
+
 #set $browser firefox
 set $alt_browser librewolf
 
@@ -116,6 +117,9 @@ set $menu nwg-drawer
 
 # Application menu - Wofi
 set $alt_menu wofi -m $(expr $(swaymsg -t get_tree | jq '.nodes | map([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | index(true)') - 1) --show drun --run-command 'swaymsg exec -- {cmd}'
+
+# Dock
+set $dock nwg-dock -p left -s preset-1.css
 
 # Window Cycling
 # Old rofi window switching

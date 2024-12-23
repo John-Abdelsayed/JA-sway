@@ -21,7 +21,7 @@
   "layer-shell": true,
   "cssPriority": "application",
   "notification-2fa-action": true,
-  "notification-inline-replies": false,
+  "notification-inline-replies": true,
   "notification-icon-size": 64,
   "notification-body-image-height": 100,
   "notification-body-image-width": 200,
@@ -35,7 +35,7 @@
       "urgency": "Normal"
     },
     "example-action-script": {
-      "exec": "echo 'Do something actionable!'",
+      "exec": "fortune | cowsay | lolcat",
       "urgency": "Normal",
       "run-on": "action"
     }
@@ -87,43 +87,53 @@
     "buttons-grid": {
             "actions": [
                 {
-                    "label": " Wi-FI",
+                    "label": "󰂯  Bluetooth",
+                    "command": "blueman-manager"
+                },
+                {
+                    "label": " - Wireless",
                     "command": "nm-connection-editor"
                 },
                 {
-                    "label": "󰕾 Mute",
+                    "label": "󰱯  Phone",
+                    "command": "scrcpy --tcpip=172.16.9.132:5555"
+                },
+                {
+                    "label": "󰕾  Mute",
                     "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
                 },
                 {
-                "label": "󰍬",
-                "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-                "type": "toggle"
+                    "label": "󰍬  Mute Mic",
+                    "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+                    "type": "toggle"
                 },
                 {
-                    "label": "󰂯 Bluetooth",
-                    "command": "blueman-manager"
-                },
-
-
-                {
-                  "label": "󰐥",
-                  "command": "systemctl poweroff"
+                    "label": "󰝚  Start Player",
+                    "command": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
                 },
                 {
-                  "label": "󰜉",
-                  "command": "systemctl reboot"
+                    "label": "󰑓  Reload Waybar",
+                    "command": "killall -SIGUSR2 waybar"
                 },
                 {
-                  "label": "󰌾",
-                  "command": "swaylock-corrupter"
+                    "label": "󱄋  Reload SwayNC",
+                    "command": "swaync-client -R"
                 },
                 {
-                  "label": "󰍃",
-                  "command": "swaymsg exit"
+                    "label": "󰩈  Exit Sway",
+                    "command": "swaymsg exit"
                 },
                 {
-                  "label": "󰆴",
-                  "command": "swaync-client -C"
+                    "label": "󰐥  Power Off",
+                    "command": "systemctl poweroff"
+                },
+                {
+                    "label": "󰜉  Reboot",
+                    "command": "systemctl reboot"
+                },
+                {
+                    "label": "󰎟  Close All",
+                    "command": "swaync-client -C"
                 }
             ]
         }

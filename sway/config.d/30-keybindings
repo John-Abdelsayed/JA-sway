@@ -83,13 +83,13 @@ bindsym $mod+v split v
 ##########################
 
 # changing border style
-#bindsym $mod+b border toggle
+bindsym $mod+b border toggle
 
 # change gaps
 bindsym $mod+plus                gaps inner current plus  5
 bindsym $mod+minus               gaps inner current minus 5
-bindsym Mod1+plus                gaps outer current plus  5
-bindsym Mod1+minus               gaps outer current minus 5
+bindsym $mod+Mod1+plus                gaps outer current plus  5
+bindsym $mod+Mod1+minus               gaps outer current minus 5
 
 # resize window (you can also use the mouse for that):
 
@@ -191,7 +191,7 @@ bindsym F12 exec $guaketoggle
 bindsym $mod+Shift+e exec $powermenu
 
 # Hide dock
-# bindsym $mod+d exec $dock
+bindsym $mod+o exec $dock
 
 # Launch editor
 bindsym $mod+m exec $editor
@@ -237,11 +237,11 @@ bindsym F9 exec $launcher
 # You can send windows there and get them back later.
 
 # Move the currently focused window to the scratchpad
-bindsym $mod+Mod1+minus move scratchpad
+bindsym $mod+q move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+Mod1+plus scratchpad show
+bindsym $mod+Mod1+q scratchpad show
 
 #########################################################
 # Hardware                            		        	#

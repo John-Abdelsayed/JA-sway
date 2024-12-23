@@ -104,7 +104,7 @@ exec_always nwg-screenshot-applet
 # Sway Fader
 ######################################
 
-exec python3 ~/.config/sway/scripts/swayfader.py
+#exec python3 ~/.config/sway/scripts/swayfader.py
 
 ######################################
 # App Drawer
@@ -112,7 +112,7 @@ exec python3 ~/.config/sway/scripts/swayfader.py
 
 # nwg-drawer
 # exec_always nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10
-# exec_always nwg-drawer -r -c 6 -is 64 -fscol 2 -s preset-0.css -term foot -ft -pbexit 'nwg-dialog -p exit-sway -c "swaymsg exit"' -pblock 'nwg-lock' -pbpoweroff 'nwg-dialog -p poweroff -c "systemctl -i poweroff"' -pbreboot 'nwg-dialog -p reboot -c "systemctl reboot"' -pbsleep 'nwg-dialog -p sleep -c "systemctl suspend"' -pbsize 48
+exec_always nwg-drawer -r -c 8 -is 32 -fscol 1 -s drawer.css -term foot -ft -pbexit 'nwg-dialog -p exit-sway -c "swaymsg exit"' -pblock 'nwg-lock' -pbpoweroff 'nwg-dialog -p poweroff -c "systemctl -i poweroff"' -pbreboot 'nwg-dialog -p reboot -c "systemctl reboot"' -pbsleep 'nwg-dialog -p sleep -c "systemctl suspend"' -pbsize 48
 
 ######################################
 # Update Indicator                   #

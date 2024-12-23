@@ -168,7 +168,7 @@ for_window [instance="player" class="Genymotion Player"] floating enable, sticky
 # scrcpy
 ###################
 
-for_window [instance="scrcpy" class="scrcpy"] floating enable, sticky enable, border pixel 5, resize set width 180 ppt height 320 ppt
+for_window [instance="scrcpy" class="scrcpy"] floating enable, border pixel 1, resize set width 20 ppt height 80 ppt
 
 #######################################
 # Type Specific - Urgent, Focus, Floating, and Sticky
@@ -189,6 +189,9 @@ for_window [app_id="firefox"] focus
 
 # Focus Opensnitch when it prompts for FW rules
 for_window [app_id="opensnitch_ui"] focus
+
+# Focus Evolution Calendar
+for_window [title="Calendar - Evolution"] focus
 
 ###################
 # Floating

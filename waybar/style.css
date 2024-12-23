@@ -15,7 +15,7 @@
 }
 
 #waybar.top {
-    background: rgba(0, 0, 0, 1.0);
+    background: rgba(0, 0, 0, 0);
     transition-property: background-color;
     transition-duration: .5s;
     font-family: "Hack Nerd Font Mono Regular", "MesloLGS Nerd Font", "Arial", "Helvetica", "sans-serif";
@@ -60,7 +60,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.persistent {
-    color: #7c818c;
+    color: #8c827c;
     font-size: 12px;
 }
 
@@ -75,8 +75,8 @@ window#waybar.hidden {
 }
 
 #workspaces button.focused {
-    color: white;
-    border: 1px solid #d8dee9;
+    color: rgb(62, 212, 16);
+    border: 2px solid #ff6600;
 }
 
 #workspaces button.urgent {
@@ -131,6 +131,7 @@ window#waybar.hidden {
     background: #383c4a;
 }
 
+#wireplumber.muted,
 #pulseaudio.muted {
     background-color: #90b1b1;
     color: #2a5c45;
@@ -167,6 +168,7 @@ window#waybar.hidden {
 }
 
 #custom-keyboard-layout,
+#keyboard-state,
 #network,
 #disk,
 #cpu,
