@@ -6,12 +6,12 @@
         "reload_style_on_change": true,
         "height": 30,
         "position": "top",
-        "spacing": 10,
+        "spacing": 6,
         "modules-left": [
-                "tray",
-                "sway/scratchpad"
+                "group/activity"
         ],
         "modules-center": [
+            "custom/cava",
             "custom/mediaplayer"
         ],
         "modules-right": [
@@ -22,6 +22,18 @@
             "group/hardware",
             "wireplumber"
         ],
+                "group/activity": {
+                    "orientation": "inherit",
+                    "drawer": {
+                        "transition-duration": 500,
+                        "children-class": "system",
+                        "transition-left-to-right": true
+                    },
+                    "modules": [
+                        "sway/scratchpad",
+                        "tray"
+                    ]
+                },
                 "group/privgroup": {
                     "orientation": "inherit",
                     "drawer": {
@@ -93,7 +105,7 @@
             },
             "privacy": {
                 "icon-spacing": 4,
-                "icon-size": 18,
+                "icon-size": 10,
                 "transition-duration": 250,
                 "modules": [
                     {
@@ -161,21 +173,49 @@
                 "on-click": "pavucontrol",
                 "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
             },
+            "custom/cava": {
+                    "exec": "sleep 3 && cava -p ${HOME}/.config/cava/config | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'",
+                    "bars": 8,
+                    "lower_cutoff_freq": 50,
+                    "higher_cutoff_freq": 10000,
+                    "method": "auto",
+                    "source": "auto",
+                    "stereo": true,
+                    "reverse": false,
+                    "bar_delimiter": 0,
+                    "monstercat": false,
+                    "waves": false,
+                    "noise_reduction": 0.77,
+                    "input_delay": 2,
+                    "format-icons": [
+                        "▁",
+                        "▂",
+                        "▃",
+                        "▄",
+                        "▅",
+                        "▆",
+                        "▇",
+                        "█"
+                    ],
+                    "actions": {
+                        "on-click-right": "mode"
+                    }
+            },
             "custom/mediaplayer": {
                 "format": "{0} {1}",
-                //"format": "{}",
                 "return-type": "json",
                 "max-length": 60,
                 "on-click": "playerctl play-pause",
                 "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-                "smooth-scrolling-threshold": 1, // This value was tested using a trackpad, it should be lowered if using a mouse.
-                "on-scroll-up": "playerctl next",
-                "on-scroll-down": "playerctl previous",
+                "on-click-middle": "playerctl metadata",
+                "smooth-scrolling-threshold": 1,
+                "on-scroll-up": "playerctld shift",
+                "on-scroll-down": "playerctld unshift",
                 "escape": true,
-                "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+                "exec": "${HOME}/.config/waybar/mediaplayer.py 2> /dev/null"
             },
             "custom/weather": {
-                "exec": "${HOME}/.config/waybar/scripts/weather/get_weather.sh Lake+Forest+IL",
+                "exec": "wttrbar --ampm --custom-indicator '{temp_F} {ICON} {FeelsLikeF}' --date-format '%m/%d' --location 'Lake Forest, IL' --hide-conditions",
                 "return-type": "json",
                 "format": "{}",
                 "tooltip": true,
@@ -220,8 +260,11 @@
                 "on-click": "systemadm"
             },
             "temperature": {
+                "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
                 "critical-threshold": 80,
+                "interval": 10,
                 "format": "{temperatureF}°F {icon}",
+                "format-critical": "{temperatureF}°F ",
                 "format-icons": [
                     "",
                     "",
@@ -296,6 +339,7 @@
         "name": "bottom",
         "layer": "top",
         "position": "bottom",
+        "reload_style_on_change": true,
         "height": 30,
         "spacing": 6,
         "modules-left": [
@@ -392,7 +436,7 @@
                 "on-scroll-up": "brightnessctl -c backlight set +5%"
             },
             "power-profiles-daemon": {
-                "format": "{icon}",
+                "format": "{icon} {profile}",
                 "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
                 "tooltip": true,
                 "format-icons": {

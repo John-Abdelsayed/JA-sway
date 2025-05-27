@@ -1,0 +1,218 @@
+#################################################################
+# Autostart Services on login:      		                #
+#################################################################
+
+#############################################
+# Hardware                                  #
+#############################################
+
+####################
+# Idle configuration
+####################
+
+exec_always swayidle -w before-sleep "$lock"
+
+####################
+# Audio
+####################
+
+# Start WirePlumber
+exec_always wireplumber --start-hidden
+
+####################
+# Network
+####################
+
+# Start networkmanager-applet
+exec nm-applet --indicator
+
+####################
+# Bluetooth
+####################
+
+# Start blueberry app for managing bluetooth devices from tray:
+exec_always blueman-applet
+
+####################
+# Mouse
+####################
+
+# Start unclutter
+exec_always unclutter --start-hidden
+
+####################
+# Display
+####################
+
+# Set up daytime/nightime lighting
+exec wlsunset -t 4000 -T 6500 -l 42.26 -L 87.84 -g 1.0
+
+# Set up autotiling (Experimental)
+exec_always nwg-autotiling
+
+####################
+# Desktop & Wallpaper
+####################
+
+# Start notification daemon
+exec swaync -c $HOME/.config/swaync/config.jsonc -s $HOME/.config/swaync/preset-0.css
+
+# Set wallpaper
+exec swaybg
+exec variety
+
+
+#################################################################
+# Autostart Apps on login:
+#################################################################
+
+######################################
+# cliphist
+######################################
+
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+exec_always nwg-screenshot-applet
+
+######################################
+# App Drawer
+######################################
+
+# nwg-drawer
+exec_always nwg-drawer -r -c 8 -is 32 -fscol 1 -s drawer.css -term foot -ft -pbexit 'nwg-dialog -p exit-sway -c "swaymsg exit"' -pblock 'nwg-lock' -pbpoweroff 'nwg-dialog -p poweroff -c "systemctl -i poweroff"' -pbreboot 'nwg-dialog -p reboot -c "systemctl reboot"' -pbsleep 'nwg-dialog -p sleep -c "systemctl suspend"' -pbsize 48
+
+######################################
+# Terminals                          #
+######################################
+
+# Start foot server
+exec_always --no-startup-id foot --server
+
+# Start guake
+exec_always guake
+
+######################################
+# Security                           #
+######################################
+
+# Start OpenSnitch
+exec sleep 10 && opensnitch-ui
+
+# Start Bitwarden
+exec sleep 10 && bitwarden-desktop
+
+# Start YubiKey Manager
+exec sleep 10 && yubioath-desktop
+
+########################################
+#  Office and Productivity #############
+########################################
+
+######################################
+# Browsers                           #
+######################################
+
+# Start Firefox
+exec sleep 15 && firefox
+
+# Start Librewolf
+exec sleep 15 && librewolf
+
+########################################
+#  Tasks                               #
+########################################
+
+# Start Super Productivity
+exec sleep 20 && superproductivity
+
+# Start Sleek
+exec sleep 20 && sleek
+
+########################################
+#  Artificial Intelligence (AI)        #
+########################################
+
+# Start ollama
+exec sleep 20 && ollama serve
+
+# Start Alpaca
+exec sleep 30 && alpaca
+exec sleep 30 && alpaca_search_provider
+
+########################################
+# Chat and IM                          #
+########################################
+
+# Start Teams
+exec sleep 30 && teams
+
+# Start Slack
+exec sleep 30 && slack
+
+######################################
+# Email                              #
+######################################
+
+# Start Evolution
+#exec sleep 30 && GTK_THEME=Yaru-dark evolution
+exec sleep 20 && evolution
+
+######################################
+# PKM                                #
+######################################
+
+# Start Obsidian
+exec sleep 20 && obsidian
+
+######################################
+# DTIG Cloud Apps                    #
+######################################
+
+######################################
+# Development                        #
+######################################
+
+# Start GitHub Desktop
+exec sleep 30 && github-desktop
+
+# Start VSCodium
+exec sleep 30 && vscodium
+
+########################################
+#  Financials                          #
+########################################
+
+# Start Homebank
+exec sleep 30 && homebank
+
+# Start Portfolio
+exec sleep 30 && portfolio
+
+########################################
+# Phone and Other Devices              #
+########################################
+
+# Start scrcpy
+# Samsung Galaxy Note 9
+# (usb)  29945745161c7ece                device  SM_N960U1
+# Device: [samsung] samsung SM-N960U1 (Android 10)
+exec sleep 30 && scrcpy --tcpip --no-audio --stay-awake  --window-width=9 --window-height=16 --window-borderless --legacy-paste
+
+# Start localsend
+exec sleep 30 && localsend --hidden
+
+########################################
+# Media                                #
+########################################
+
+# Start Playerctl
+exec sleep 30 && playerctld daemon
+
+# Start strawberry
+exec sleep 50 && strawberry
+
+# Start vlc
+exec sleep 40 && vlc
+
+# Start SMPlayer
+exec sleep 40 && smplayer
