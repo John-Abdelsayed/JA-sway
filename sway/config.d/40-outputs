@@ -24,10 +24,13 @@
 # Manages displays
 ####################
 
+set $laptopdisplay  "Sharp Corporation 0x14CB Unknown"
+set $displaytv      "Samsung Electric Company SAMSUNG 0x01000000"
+set $displayleft    "Ancor Communications Inc VS278 JALMQS041752"
+set $displayright   "Ancor Communications Inc VS278 JALMQS041754"
 
-
-output "eDP-1" {
-    mode  1920x1200@59.95Hz
+output "laptopdisplay" {
+    mode  1920x1200@59.50Hz
     pos 0 0
     transform normal
     scale 1.0
@@ -35,7 +38,7 @@ output "eDP-1" {
     adaptive_sync on
     dpms on
 }
-output "DP-4" {
+output "displayleft" {
     mode  1920x1080@60.0Hz
     pos 1920 0
     transform normal
@@ -44,11 +47,20 @@ output "DP-4" {
     adaptive_sync on
     dpms on
 }
-output "DP-3" {
+output "displayright" {
     mode  1920x1080@60.0Hz
     pos 3840 0
     transform normal
     scale 1.0
+    scale_filter nearest
+    adaptive_sync on
+    dpms on
+}
+output "displayTV" {
+    mode  3840x2160@30.0Hz
+    pos 1200 0
+    transform normal
+    scale 4.0
     scale_filter nearest
     adaptive_sync on
     dpms on
@@ -226,7 +238,7 @@ assign [class="(?i)vlc"] $ws20
 # Netflix
 assign [app_id="FFPWA-01JCSK69G2GM70FNAPA4DS5M0X"] $ws20
 # SMPlayer
-assign [app_id="SMPlayer"] $ws20
+assign [app_id="(?i)SMPlayer"] $ws20
 # Spotify
 assign [class="(?i)Spotify"] $ws20
 # Strawberry
